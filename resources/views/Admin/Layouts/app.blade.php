@@ -29,10 +29,10 @@
         <div class="main-wrapper">
             <div class="navbar-bg"></div>
             <!-- Navbar -->
-            @include('Bidan.Layouts.navbar')
+            @include('Admin.Layouts.navbar')
 
             <!-- Sidebar -->
-            @include('Bidan.Layouts.sidebar')
+            @include('Admin.Layouts.sidebar')
 
             <!-- Main Content -->
             <div class="main-content">
@@ -46,7 +46,7 @@
                     </div>
                 </section>
             </div>
-            @include('Bidan.Layouts.footer')
+            @include('Admin.Layouts.footer')
         </div>
     </div>
 

@@ -24,7 +24,7 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
-            return view('Bidan.Dashboard.dashboard')->with('users', $request);
+            return view('Admin.Dashboard.dashboard')->with('users', $request);
         }
         return back()->withErrors([
             'password' => 'Username atau Password anda salah'
