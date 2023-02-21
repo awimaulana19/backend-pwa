@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PersalinanController;
+use App\Http\Controllers\KeluargaberencanaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +27,11 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::group(['middleware' => ['auth']], function () {
         Route::get('/dashboard', function () {
-            return view('Bidan.Dashboard.dashboard');
+            return view('Admin.Dashboard.dashboard');
         });
+        Route::get('/persalinan', [PersalinanController::class, 'index']);
+        Route::get('/riwayatpersalinan', [PersalinanController::class, 'riwayat']);
+        Route::get('/kb', [KeluargaberencanaController::class, 'index']);
+        Route::get('/riwayatkb', [KeluargaberencanaController::class, 'riwayat']);
     });
 });

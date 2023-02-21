@@ -12,7 +12,7 @@
         <ul class="sidebar-menu mt-3">
             <li class="menu-header">Dashboard</li>
             <li class="{{ $title == 'Dashboard Admin' ? 'active' : '' }}">
-                <a class="nav-link" href=""><i class="bi bi-bar-chart-fill"></i>
+                <a class="nav-link" href="/dashboard"><i class="bi bi-bar-chart-fill"></i>
                     <span>Dashboard</span></a>
             </li>
 
@@ -34,22 +34,22 @@
             {{-- Data Persalinan --}}
             <li class="menu-header">Data Pemeriksaan Persalinan</li>
             <li class="{{ $title == 'Data Persalinan' ? 'active' : '' }}">
-                <a class="nav-link" href=""><i class="bi bi-person-heart"></i>
+                <a class="nav-link" href="/persalinan"><i class="bi bi-person-heart"></i>
                     <span>Data Persalinan</span></a>
             </li>
             <li class="{{ $title == 'Riwayat Persalinan' ? 'active' : '' }}">
-                <a class="nav-link" href=""><i class="bi bi-person-hearts"></i>
+                <a class="nav-link" href="/riwayatpersalinan"><i class="bi bi-person-hearts"></i>
                     <span>Riwayat Data Persalinan</span></a>
             </li>
 
             {{-- data KB --}}
             <li class="menu-header">Data Keluarga Berencana</li>
             <li class="{{ $title == 'Data KB' ? 'active' : '' }}">
-                <a class="nav-link" href=""><i class="bi bi-people"></i>
+                <a class="nav-link" href="/kb"><i class="bi bi-people"></i>
                     <span>Data KB</span></a>
             </li>
             <li class="{{ $title == 'Riwayat Data KB' ? 'active' : '' }}">
-                <a class="nav-link" href=""><i class="bi bi-people-fill"></i>
+                <a class="nav-link" href="/riwayatkb"><i class="bi bi-people-fill"></i>
                     <span>Riwayat Data KB</span></a>
             </li>
 
