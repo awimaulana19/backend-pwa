@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+* {
+    font-family: Poppins;
+}
+
+#login nav {
+    background-color: #55abf8;
+    z-index: 1;
+}
+#login .logo img {
+    width: 40px;
+    padding: 10px 0px;
+}
+#login .card {
+    background: #ffffff;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+    padding: 50px 40px;
+    border: none;
+    z-index: 0;
+}
+#login .title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333333;
+    margin-top: 80px;
+    text-align: center;
+}
+#login .subtitle {
+    color: #333333;
+    margin-bottom: 70px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+#login .btn-login {
+    background-color: #4eaafd;
+    color: #fff;
+    font-size: 16px;
+    padding: 12px 0px;
+    font-weight: 500;
+    transition: all ease-in-out 0.4s;
+}
+#login .btn-kembali {
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    font-size: 16px;
+    padding: 12px 0px;
+    font-weight: 500;
+    transition: all ease-in-out 0.4s;
+}
+#login .btn-login:hover {
+    transition: all ease-in-out 0.4s;
+    color: #4eaafd;
+    border: 1px solid #4eaafd;
+    background-color: transparent;
+    font-weight: 500;
+}
+
+@media (max-width: 575.98px) {
+    #login .card {
+        box-shadow: none;
+        padding: 20px;
+        font-size: 13px;
+    }
+    .form-control::-webkit-input-placeholder {
+        font-size: 13px;
+    }
+
+    .form-control:-moz-input-placeholder {
+        font-size: 13px;
+    }
+
+    .form-control:-ms-input-placeholder {
+        font-size: 13px;
+    }
+    #login .title {
+        font-size: 20px;
+        font-weight: 500;
+    }
+    #login .subtitle {
+        font-size: 13px;
+        margin-bottom: 40px;
+    }
+    #login .btn {
+        padding: 8px 0px;
+        font-size: 13px;
+        margin-bottom: 30px;
+    }
+    input[type="date"] {
+        font-size: 12px;
+    }
+}
