@@ -16,12 +16,33 @@
                     <span>Dashboard</span></a>
             </li>
 
-            {{-- data pendaftaran --}}
-            <li class="menu-header">Data Pendaftaran</li>
-            <li class="{{ $title == 'Data Pendaftaran' ? 'active' : '' }}">
-                <a class="nav-link" href=""><i class="bi bi-clipboard2-data-fill"></i>
-                    <span>Data Pendaftaran</span></a>
+            {{-- data kehamilan --}}
+            <li class="menu-header">Data Pemeriksaan Kehamilan</li>
+            <li class="{{ $title == 'Pemeriksaan Awal' ? 'active' : '' }}">
+                <a class="nav-link" href=""><i class="bi bi-calendar-plus-fill"></i>
+                    <span>Pemeriksaan Awal</span></a>
             </li>
+            <li class="{{ $title == 'Kunjungan Ulang' ? 'active' : '' }}">
+                <a class="nav-link" href=""><i class="bi bi-calendar2-check-fill"></i>
+                    <span>Kunjungan Ulang</span></a>
+            </li>
+
+            {{-- data Persalinan --}}
+            <li class="menu-header">Data Persalinan</li>
+            <li class="{{ $title == 'Data Persalinan' ? 'active' : '' }}">
+                <a class="nav-link" href=""><i class="bi bi-person-heart"></i>
+                    <span>Data Persalinan</span></a>
+            </li>
+
+            {{-- data keluarga berencana --}}
+            <li class="menu-header">Data Keluarga Berencana</li>
+            <li class="{{ $title == 'Keluarga Berencana' ? 'active' : '' }}">
+                <a class="nav-link" href=""><i class="bi bi-people-fill"></i>
+                    <span>Data KB</span></a>
+            </li>
+
+            {{-- data riwayat pendaftaran --}}
+            <li class="menu-header">Riwayat Pendaftaran</li>
             <li class="{{ $title == 'Riwayat Pendaftaran' ? 'active' : '' }}">
                 <a class="nav-link" href=""><i class="bi bi-clock-history"></i>
                     <span>Riwayat Pendaftaran</span></a>
