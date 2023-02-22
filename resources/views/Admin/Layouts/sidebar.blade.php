@@ -16,41 +16,15 @@
                     <span>Dashboard</span></a>
             </li>
 
-            {{-- Data Pemeriksaan Kehamilan --}}
-            <li class="menu-header">Data Pemeriksaan Kehamilan</li>
-            <li class="{{ $title == 'Pemeriksaan Awal' ? 'active' : '' }}">
-                <a class="nav-link" href=""><i class="bi bi-calendar-plus-fill"></i>
-                    <span>Pemeriksaan Awal</span></a>
+            {{-- data pendaftaran --}}
+            <li class="menu-header">Data Pendaftaran</li>
+            <li class="{{ $title == 'Data Pendaftaran' ? 'active' : '' }}">
+                <a class="nav-link" href=""><i class="bi bi-clipboard2-data-fill"></i>
+                    <span>Data Pendaftaran</span></a>
             </li>
-            <li class="{{ $title == 'Kunjungan Ulang' ? 'active' : '' }}">
-                <a class="nav-link" href=""><i class="bi bi-calendar2-check-fill"></i>
-                    <span>Kunjungan Ulang</span></a>
-            </li>
-            <li class="{{ $title == 'Riwayat Pemeriksaan' ? 'active' : '' }}">
-                <a class="nav-link" href=""><i class="bi bi-calendar3"></i>
-                    <span>Riwayat Data Kehamilan</span></a>
-            </li>
-
-            {{-- Data Persalinan --}}
-            <li class="menu-header">Data Pemeriksaan Persalinan</li>
-            <li class="{{ $title == 'Data Persalinan' ? 'active' : '' }}">
-                <a class="nav-link" href="/persalinan"><i class="bi bi-person-heart"></i>
-                    <span>Data Persalinan</span></a>
-            </li>
-            <li class="{{ $title == 'Riwayat Persalinan' ? 'active' : '' }}">
-                <a class="nav-link" href="/riwayatpersalinan"><i class="bi bi-person-hearts"></i>
-                    <span>Riwayat Data Persalinan</span></a>
-            </li>
-
-            {{-- data KB --}}
-            <li class="menu-header">Data Keluarga Berencana</li>
-            <li class="{{ $title == 'Data KB' ? 'active' : '' }}">
-                <a class="nav-link" href="/kb"><i class="bi bi-people"></i>
-                    <span>Data KB</span></a>
-            </li>
-            <li class="{{ $title == 'Riwayat Data KB' ? 'active' : '' }}">
-                <a class="nav-link" href="/riwayatkb"><i class="bi bi-people-fill"></i>
-                    <span>Riwayat Data KB</span></a>
+            <li class="{{ $title == 'Riwayat Pendaftaran' ? 'active' : '' }}">
+                <a class="nav-link" href=""><i class="bi bi-clock-history"></i>
+                    <span>Riwayat Pendaftaran</span></a>
             </li>
 
             {{-- data pengguna --}}

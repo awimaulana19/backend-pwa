@@ -16,14 +16,14 @@ use App\Http\Controllers\KeluargaberencanaController;
 |
 */
 
-// route login bidan
+// route login
 Route::get('/', [LoginController::class, 'halaman_login']);
 Route::get('/regis', [LoginController::class, 'halaman_regis'])->name('halaman_regis');
 Route::post('/dashboard', [LoginController::class, 'login_action'])->name('login.action');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
-// route dashboard bidan
+// route dashboard admin
 Route::namespace('App\Http\Controllers')->group(function () {
     Route::group(['middleware' => ['auth']], function () {
         Route::get('/dashboard', function () {
