@@ -12,10 +12,4 @@ class PersalinanController extends Controller
         $persalinan = Persalinan::get();
         return view('Admin.DataPersalinan.datapersalinan', compact('persalinan'));
     }
-
-    public function riwayat()
-    {
-        $persalinan = Persalinan::get();
-        return view('Admin.DataPersalinan.riwayatpersalinan', compact('persalinan'));
-    }
 }

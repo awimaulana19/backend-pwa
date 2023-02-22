@@ -30,8 +30,6 @@ Route::namespace('App\Http\Controllers')->group(function () {
             return view('Admin.Dashboard.dashboard');
         });
         Route::get('/persalinan', [PersalinanController::class, 'index']);
-        Route::get('/riwayatpersalinan', [PersalinanController::class, 'riwayat']);
         Route::get('/kb', [KeluargaberencanaController::class, 'index']);
-        Route::get('/riwayatkb', [KeluargaberencanaController::class, 'riwayat']);
     });
 });

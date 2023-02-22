@@ -12,10 +12,4 @@ class KeluargaberencanaController extends Controller
         $kb = Keluargaberencana::get();
         return view('Admin.Datakb.datakb', compact('kb'));
     }
-
-    public function riwayat()
-    {
-        $kb = Keluargaberencana::get();
-        return view('Admin.DataKB.riwayatdatakb', compact('kb'));
-    }
 }

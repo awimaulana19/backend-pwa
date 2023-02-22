@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('tanggal_kembali');
             $table->string('metode_kb');
             $table->string('keterangan');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

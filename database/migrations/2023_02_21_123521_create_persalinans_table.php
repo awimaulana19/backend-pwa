@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('pekerjaan');
             $table->string('alamat');
             $table->string('keterangan');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
