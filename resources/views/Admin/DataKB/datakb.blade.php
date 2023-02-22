@@ -37,7 +37,7 @@
                         <td>
                             @if ($item->status === 0)
                                 <a class="btn btn-success py-2 me-1"
-                                    href="{{ url('persalinan/selesai/' . $item->id) }}">
+                                    href="{{ url('kb/selesai/' . $item->id) }}">
                                     <i class="fs-6 bi bi-check2"></i>
                                 </a>
                             @else
