@@ -17,6 +17,7 @@ class AdminSeeder extends Seeder
     public function run()
     {
         User::create([
+            'roles' => 'admin',
             'username' => 'admin',
             'password' => bcrypt('admin'),
             'remember_token' => Str::random(60)

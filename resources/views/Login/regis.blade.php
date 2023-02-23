@@ -9,8 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
-    <!-- icon -->
-    <link rel="shortcut icon" href="{{ asset('assets/img/books.png') }}" type="image/x-icon">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 
@@ -40,13 +39,22 @@
                                 <p class="alert alert-danger">{{ $err }}</p>
                             @endforeach
                         @endif
-                        <form action="" method="POST">
+                        <form action="{{ route('register.action') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username / Nama Lengkap</label>
                                 <input type="text" name="username" id="username"
                                     class=" py-md-3 py-2 ps-md-4 ps-3 form-control"
                                     placeholder="Masukkan Nama Lengkap anda">
+                            </div>
+                            <label for="pass" class="form-label">Password</label>
+                            <div class="input-group mb-4">
+                                <input type="password" name="password" id="pass"
+                                    class=" py-md-3 py-2 ps-md-4 ps-3 form-control" placeholder="Masukkan Password">
+                                <!-- kita pasang onclick untuk merubah icon buka/tutup mata setiap diklik  -->
+                                <span id="mybutton" onclick="lihat()" class="input-group-text" style="cursor:pointer;">
+                                    <i class="bi bi-eye-fill"></i>
+                                </span>
                             </div>
                             <div class="mb-3">
                                 <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
@@ -68,15 +76,6 @@
                                 <label for="alamat" class="form-label">Alamat</label>
                                 <input type="text" name="alamat" id="alamat"
                                     class=" py-md-3 py-2 ps-md-4 ps-3 form-control" placeholder="Masukkan Alamat Anda">
-                            </div>
-                            <label for="pass" class="form-label">Password</label>
-                            <div class="input-group mb-4">
-                                <input type="password" name="password" id="pass"
-                                    class=" py-md-3 py-2 ps-md-4 ps-3 form-control" placeholder="Masukkan Password">
-                                <!-- kita pasang onclick untuk merubah icon buka/tutup mata setiap diklik  -->
-                                <span id="mybutton" onclick="lihat()" class="input-group-text" style="cursor:pointer;">
-                                    <i class="bi bi-eye-fill"></i>
-                                </span>
                             </div>
                             <div class="d-flex justify-content-center mb-4 gap-3">
                                 <a href="/" class="btn btn-kembali w-100">Kembali</a>

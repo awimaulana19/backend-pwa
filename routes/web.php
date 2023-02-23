@@ -16,19 +16,20 @@ use App\Http\Controllers\KeluargaberencanaController;
 |
 */
 
-// route login
+// route login regis
 Route::get('/', [LoginController::class, 'halaman_login']);
+Route::post('/', [LoginController::class, 'login_action'])->name('login.action');
 Route::get('/regis', [LoginController::class, 'halaman_regis'])->name('halaman_regis');
-Route::post('/dashboard', [LoginController::class, 'login_action'])->name('login.action');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/regis', [LoginController::class, 'register_action'])->name('register.action');
+Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 
-// route dashboard admin
 Route::namespace('App\Http\Controllers')->group(function () {
-    Route::group(['middleware' => ['auth']], function () {
-        Route::get('/dashboard', function () {
-            return view('Admin.Dashboard.dashboard');
-        });
+    // route dashboard admin
+    Route::group(['middleware' => ['auth', 'cekLevel:admin']], function () {
+        // dashboard
+        Route::get('dashboard-admin', [LoginController::class, 'dashboard_admin'])->name('dashboard-admin');
+
         Route::get('/persalinan', [PersalinanController::class, 'index']);
         Route::get('/persalinan/show/{id}', [PersalinanController::class, 'show']);
         Route::get('/persalinan/{id}', [PersalinanController::class, 'hapus']);
@@ -37,5 +38,10 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::get('/kb/show/{id}', [KeluargaberencanaController::class, 'show']);
         Route::get('/kb/{id}', [KeluargaberencanaController::class, 'hapus']);
         Route::get('/kb/selesai/{id}', [KeluargaberencanaController::class, 'selesai']);
+    });
+
+    // pasien
+    Route::group(['middleware' => ['auth', 'cekLevel:pasien']], function () {
+        Route::get('home', [LoginController::class, 'halaman_user'])->name('home');
     });
 });
