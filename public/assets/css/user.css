@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+    font-family: Poppins;
+}
 
 .container .cards {
     background: #ffffff;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
-    padding: 50px 40px;
+    padding: 50px 40px 240px 40px;
     border: none;
-    z-index: 9999;
+    z-index: 0;
 }
 header {
     background-color: #55abf8;
@@ -25,10 +28,13 @@ header {
 }
 .navbar .nav-item {
     color: #9aa4ad;
+    margin: 0px 20px;
     text-decoration: none;
+    transition: all ease-in-out 0.3s;
 }
 
 .navbar .nav-item:hover {
+    transition: all ease-in-out 0.3s;
     color: #55abf8;
 }
 
@@ -45,4 +51,72 @@ header {
     font-weight: 500;
     line-height: 21px;
     letter-spacing: 0em;
+}
+
+.isi {
+    background-color: #55abf8;
+    color: #fff;
+}
+.footer {
+    padding: 20px 0px;
+}
+p {
+    margin-bottom: 0px;
+}
+.title {
+    color: #333333;
+    font-size: 16px;
+    font-weight: 500;
+}
+.subtitle {
+    font-size: 14px;
+    color: #9aa4ad;
+    font-weight: 400;
+}
+
+#home {
+    margin-top: 40px;
+}
+#home .headtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #515151;
+    text-align: left;
+}
+#home .headsubtitle {
+    color: #9aa4ad;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+#home .user {
+    width: 50px;
+}
+#home .slide {
+    margin-top: 30px;
+}
+#home .slide img {
+    border-radius: 8px;
+}
+#home .praktek {
+    margin-top: 30px;
+}
+#home .keteranganfitur {
+    color: #f4a9ac;
+    margin-top: 5px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+#home .testimoni {
+    margin-top: 30px;
+}
+#home .testimoni .card {
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #f8f8f8;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 0px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
 }

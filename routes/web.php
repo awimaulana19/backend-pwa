@@ -17,7 +17,7 @@ use App\Http\Controllers\KeluargaberencanaController;
 */
 
 // route login regis
-Route::get('/', [LoginController::class, 'halaman_login']);
+Route::get('/', [LoginController::class, 'halaman_login'])->name('halaman_login');
 Route::post('/', [LoginController::class, 'login_action'])->name('login.action');
 Route::get('/regis', [LoginController::class, 'halaman_regis'])->name('halaman_regis');
 Route::post('/regis', [LoginController::class, 'register_action'])->name('register.action');
