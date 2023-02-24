@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PersalinanController;
 use App\Http\Controllers\KeluargaberencanaController;
+use App\Http\Controllers\KritikSaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +53,10 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::get('registrasi', [UserController::class, 'registrasi'])->name('registrasi');
         Route::get('riwayat', [UserController::class, 'riwayat'])->name('riwayat');
         Route::get('profile', [UserController::class, 'profile'])->name('profile');
+
+
         Route::get('informasi', [UserController::class, 'informasi'])->name('informasi');
+        Route::post('informasi', [KritikSaranController::class, 'store'])->name('kritiksaran.store');
 
         // Comment Awi Jangan Dihapus
         // Route::post('daftar-persalinan', [UserController::class, 'persalinan_action'])->name('daftar_persalinan');

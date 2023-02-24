@@ -24,6 +24,7 @@
             <div class="row">
                 <div class="col-md-6 mx-auto">
                     <div class="cards">
+                        @include('sweetalert::alert')
                         @yield('content')
 
                         {{-- navbar --}}

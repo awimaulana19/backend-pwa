@@ -21,7 +21,10 @@
             </div>
 
             <div class="col-12 mt-4">
-                <form action="">
+                <form action="{{ route('kritiksaran.store') }}" method="POST">
+                    @csrf
+                    <input type="text" name="username" hidden value="{{ auth()->user()->username }}">
+                    <input type="text" name="email" hidden value="{{ auth()->user()->email }}">
                     <div class="mb-3">
                         <label for="kritik" class="form-label">Kritik</label>
                         <textarea name="kritik" id="kritik" rows="3" class="form-control" placeholder="Masukkan Kritik Anda"></textarea>

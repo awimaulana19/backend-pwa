@@ -10,7 +10,16 @@
                         <p class="headsubtitle">di Bidan Praktek Swasta Dina Bantuk</p>
                     </div>
                     <div class="ms-auto align-self-center">
-                        <img src="{{ asset('assets/img/pasien.png') }}" alt="" class="user">
+                        <div class="dropstart">
+                            <img src="{{ asset('assets/img/pasien.png') }}" alt="" class="user dropdown-toggle"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <ul class="dropdown-menu">
+                                <li class="text-center">
+                                    <a href="{{ route('logout') }}"
+                                        class="text-decoration-none fw-bold text-danger">Keluar</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
