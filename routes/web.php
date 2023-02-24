@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\admin\KunjunganUlangKehamilanController;
+use App\Http\Controllers\admin\PemeriksaanAwalKehamilanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -39,6 +41,9 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::get('/kb/show/{id}', [KeluargaberencanaController::class, 'show']);
         Route::get('/kb/{id}', [KeluargaberencanaController::class, 'hapus']);
         Route::get('/kb/selesai/{id}', [KeluargaberencanaController::class, 'selesai']);
+
+        Route::resource('pemeriksaan-awal-kehamilan',PemeriksaanAwalKehamilanController::class);
+        Route::resource('kunjungan-ulang-kehamilan', KunjunganUlangKehamilanController::class);
     });
 
     // pasien
