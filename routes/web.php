@@ -54,7 +54,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::get('profile', [UserController::class, 'profile'])->name('profile');
         Route::get('informasi', [UserController::class, 'informasi'])->name('informasi');
 
-
+        // Comment Awi Jangan Dihapus
         // Route::post('daftar-persalinan', [UserController::class, 'persalinan_action'])->name('daftar_persalinan');
         // Route::post('daftar-kb', [UserController::class, 'kb_action'])->name('daftar_kb');
     });

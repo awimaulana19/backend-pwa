@@ -35,8 +35,8 @@ class UserController extends Controller
         return view('User.Pendaftaran.persalinan.daftar');
     }
 
-    
 
+    // Comment Awi Jangan Dihapus
     // public function persalinan_action(Request $request)
     // {
     //     $persalinan = new Persalinan();
