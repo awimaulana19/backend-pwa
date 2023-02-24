@@ -1,5 +1,3 @@
-@extends('User.Layouts.app', ['title' => 'Registrasi'])
-
 @section('content')
     <section id="daftar">
         <div class="row mt-5">
