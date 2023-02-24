@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('roles');
             $table->string('username')->unique();
             $table->string('password');
-            $table->string('tgl_lahir')->nullable();
+            $table->date('tgl_lahir')->nullable();
             $table->string('no_wa')->nullable();
             $table->string('email')->nullable();
             $table->string('alamat')->nullable();
