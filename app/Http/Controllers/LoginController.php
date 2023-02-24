@@ -24,10 +24,6 @@ class LoginController extends Controller
         return view('Admin.Dashboard.dashboard');
     }
 
-    public function halaman_user()
-    {
-        return view('User.Home.home');
-    }
 
     public function register_action(Request $request)
     {

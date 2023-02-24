@@ -62,14 +62,14 @@
                     <div class="row" style="margin-top: 15px;">
                         <div class="col-6">
                             <p class="title">Kritik</p>
-                            <p class="subtitle">
+                            <p class="subtitle text-justify">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem aliquam saepeime perferendis
                                 molestias
                             </p>
                         </div>
                         <div class="col-6">
                             <p class="title">Saran</p>
-                            <p class="subtitle">
+                            <p class="subtitle text-justify">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem aliquam saepeime perferendis
                                 molestias
                             </p>

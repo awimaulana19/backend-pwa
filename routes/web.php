@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PersalinanController;
 use App\Http\Controllers\KeluargaberencanaController;
@@ -42,6 +43,10 @@ Route::namespace('App\Http\Controllers')->group(function () {
 
     // pasien
     Route::group(['middleware' => ['auth', 'cekLevel:pasien']], function () {
-        Route::get('home', [LoginController::class, 'halaman_user'])->name('home');
+        Route::get('home', [UserController::class, 'halaman_user'])->name('home');
+        Route::get('registrasi', [UserController::class, 'registrasi'])->name('registrasi');
+        Route::get('riwayat', [UserController::class, 'riwayat'])->name('riwayat');
+        Route::get('profile', [UserController::class, 'profile'])->name('profile');
+        Route::get('informasi', [UserController::class, 'informasi'])->name('informasi');
     });
 });
