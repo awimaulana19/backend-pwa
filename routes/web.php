@@ -1,13 +1,11 @@
 <?php
 
-use App\Http\Controllers\admin\KunjunganUlangKehamilanController;
-use App\Http\Controllers\admin\PemeriksaanAwalKehamilanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PersalinanController;
+use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\KeluargaberencanaController;
-use App\Http\Controllers\KritikSaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,15 +31,19 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::group(['middleware' => ['auth', 'cekLevel:admin']], function () {
         // dashboard
         Route::get('dashboard-admin', [LoginController::class, 'dashboard_admin'])->name('dashboard-admin');
-
+        
+        Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
+        Route::get('/pendaftaran/periksa/{id}', [PendaftaranController::class, 'periksa']);
+        Route::post('periksa-persalinan', [PendaftaranController::class, 'persalinan_action'])->name('periksa_persalinan');
+        Route::post('periksa-kb', [PendaftaranController::class, 'kb_action'])->name('periksa_kb');
+        Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'hapus']);
+        Route::get('/pendaftaran-reset', [PendaftaranController::class, 'reset']);
         Route::get('/persalinan', [PersalinanController::class, 'index']);
         Route::get('/persalinan/show/{id}', [PersalinanController::class, 'show']);
         Route::get('/persalinan/{id}', [PersalinanController::class, 'hapus']);
-        Route::get('/persalinan/selesai/{id}', [PersalinanController::class, 'selesai']);
         Route::get('/kb', [KeluargaberencanaController::class, 'index']);
         Route::get('/kb/show/{id}', [KeluargaberencanaController::class, 'show']);
         Route::get('/kb/{id}', [KeluargaberencanaController::class, 'hapus']);
-        Route::get('/kb/selesai/{id}', [KeluargaberencanaController::class, 'selesai']);
 
         Route::resource('pemeriksaan-awal-kehamilan',PemeriksaanAwalKehamilanController::class);
         Route::resource('kunjungan-ulang-kehamilan', KunjunganUlangKehamilanController::class);
@@ -57,9 +59,5 @@ Route::namespace('App\Http\Controllers')->group(function () {
 
         Route::get('informasi', [UserController::class, 'informasi'])->name('informasi');
         Route::post('informasi', [KritikSaranController::class, 'store'])->name('kritiksaran.store');
-
-        // Comment Awi Jangan Dihapus
-        // Route::post('daftar-persalinan', [UserController::class, 'persalinan_action'])->name('daftar_persalinan');
-        // Route::post('daftar-kb', [UserController::class, 'kb_action'])->name('daftar_kb');
     });
 });

@@ -12,6 +12,6 @@ class Persalinan extends Model
     protected $guarded = ['id'];
     
     public function user(){
-        return $this->belongsTo(Operasional::class);
+        return $this->belongsTo(User::class);
     }
 }

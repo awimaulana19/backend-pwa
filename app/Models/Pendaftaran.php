@@ -5,12 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Keluargaberencana extends Model
+class Pendaftaran extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
-    
+
+    public static function boot() {
+        parent::boot();
+        static::creating(function ($model) {
+            $model->antrian = self::max('antrian') + 1;
+        });
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }

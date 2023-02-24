@@ -54,4 +54,8 @@ class User extends Authenticatable
     public function kb(){
         return $this->hasMany(Keluargaberencana::class);
     }
+
+    public function pendaftaran(){
+        return $this->hasMany(Pendaftaran::class);
+    }
 }

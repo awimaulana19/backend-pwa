@@ -27,14 +27,4 @@ class PersalinanController extends Controller
 
         return redirect('/persalinan');
     }
-
-    public function selesai($id)
-    {
-        $persalinan = Persalinan::Where('id', $id)->first();
-        
-        $persalinan->status = true;
-        $persalinan->update();
-
-        return redirect('/persalinan');
-    }
 }

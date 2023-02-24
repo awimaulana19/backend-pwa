@@ -30,21 +30,21 @@
             {{-- data Persalinan --}}
             <li class="menu-header">Data Persalinan</li>
             <li class="{{ $title == 'Data Persalinan' ? 'active' : '' }}">
-                <a class="nav-link" href="/admin/persalinan"><i class="bi bi-person-heart"></i>
+                <a class="nav-link" href="/persalinan"><i class="bi bi-person-heart"></i>
                     <span>Data Persalinan</span></a>
             </li>
 
             {{-- data keluarga berencana --}}
             <li class="menu-header">Data Keluarga Berencana</li>
             <li class="{{ $title == 'Keluarga Berencana' ? 'active' : '' }}">
-                <a class="nav-link" href="/admin/kb"><i class="bi bi-people-fill"></i>
+                <a class="nav-link" href="/kb"><i class="bi bi-people-fill"></i>
                     <span>Data KB</span></a>
             </li>
 
             {{-- data riwayat pendaftaran --}}
             <li class="menu-header">Riwayat Pendaftaran</li>
             <li class="{{ $title == 'Riwayat Pendaftaran' ? 'active' : '' }}">
-                <a class="nav-link" href=""><i class="bi bi-clock-history"></i>
+                <a class="nav-link" href="/pendaftaran"><i class="bi bi-clock-history"></i>
                     <span>Riwayat Pendaftaran</span></a>
             </li>
 

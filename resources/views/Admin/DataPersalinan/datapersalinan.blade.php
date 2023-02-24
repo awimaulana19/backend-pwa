@@ -22,7 +22,6 @@
                         <th>Nama</th>
                         <th>Umur</th>
                         <th>Hari</th>
-                        <th>Periksa</th>
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
@@ -34,16 +33,6 @@
                             <td>{{ $item->nama }}</td>
                             <td>{{ $item->umur }}</td>
                             <td>{{ $item->hari }}</td>
-                            <td>
-                                @if ($item->status === 0)
-                                    <a class="btn btn-success py-2 me-1"
-                                        href="{{ url('persalinan/selesai/' . $item->id) }}">
-                                        <i class="fs-6 bi bi-check2"></i>
-                                    </a>
-                                @else
-                                Selesai
-                                @endif
-                            </td>
                             <td class="text-center">
                                 <a class="btn btn-info py-2 me-1" href="{{ url('persalinan/show/' . $item->id) }}">
                                     <i class="fs-6 bi bi-eye-fill"></i>

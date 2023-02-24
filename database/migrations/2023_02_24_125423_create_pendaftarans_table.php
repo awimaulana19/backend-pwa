@@ -13,20 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('keluargaberencanas', function (Blueprint $table) {
+        Schema::create('pendaftarans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->date('tanggal');
-            $table->string('baru');
-            $table->string('lama');
+            $table->unsignedInteger('antrian')->default(1);
             $table->string('nama');
-            $table->string('umur');
-            $table->string('alamat');
-            $table->string('jumlah_anak');
-            $table->string('td_bb');
-            $table->date('tanggal_kembali');
-            $table->string('metode_kb');
-            $table->string('keterangan');
+            $table->string('jk')->nullable();
+            $table->string('umur')->nullable();
+            $table->string('alamat')->nullable();
+            $table->string('periksa');
+            $table->string('antrian_sekarang')->default(1);
             $table->timestamps();
         });
     }
@@ -38,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('keluargaberencanas');
+        Schema::dropIfExists('pendaftarans');
     }
 };

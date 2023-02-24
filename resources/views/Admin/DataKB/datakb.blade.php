@@ -22,7 +22,6 @@
                     <th>Tanggal</th>
                     <th>Baru</th>
                     <th>Lama</th>
-                    <th>Periksa</th>
                     <th class="text-center">Action</th>
                 </tr>
             </thead>
@@ -34,16 +33,6 @@
                         <td>{{ $item->tanggal }}</td>
                         <td>{{ $item->baru }}</td>
                         <td>{{ $item->lama }}</td>
-                        <td>
-                            @if ($item->status === 0)
-                                <a class="btn btn-success py-2 me-1"
-                                    href="{{ url('kb/selesai/' . $item->id) }}">
-                                    <i class="fs-6 bi bi-check2"></i>
-                                </a>
-                            @else
-                            Selesai
-                            @endif
-                        </td>
                         <td class="text-center">
                             <a class="btn btn-info py-2 me-1" href="{{ url('kb/show/' . $item->id) }}">
                                 <i class="fs-6 bi bi-eye-fill"></i>
