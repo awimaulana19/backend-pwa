@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('keluargaberencanas', function (Blueprint $table) {
             $table->id();
-            $table->string('tanggal');
+            $table->foreignId('user_id');
+            $table->date('tanggal');
             $table->string('baru');
             $table->string('lama');
             $table->string('nama');
@@ -23,9 +24,10 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('jumlah_anak');
             $table->string('td_bb');
-            $table->string('tanggal_kembali');
+            $table->date('tanggal_kembali');
             $table->string('metode_kb');
             $table->string('keterangan');
+            $table->string('antrian')->nullable();
             $table->boolean('status')->default(false);
             $table->timestamps();
         });

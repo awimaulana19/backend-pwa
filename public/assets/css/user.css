@@ -183,7 +183,7 @@ p {
 #informasi iframe {
     border-radius: 8px;
 }
-#informasi .btn {
+#informasi .btn, #daftar .btn {
     border-radius: 8px;
     background-color: #55abf8;
     color: #fff;
@@ -191,7 +191,7 @@ p {
     transition: all ease-in-out 0.3s;
     font-weight: 500;
 }
-#informasi .btn:hover {
+#informasi .btn:hover, #daftar .btn:hover {
     background-color: transparent;
     border: 1px solid #55abf8;
     transition: all ease-in-out 0.3s;

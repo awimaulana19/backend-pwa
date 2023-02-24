@@ -26,13 +26,13 @@
                 </a>
             </div>
             <div class="col-6 mb-4">
-                <a href="#" class="card">
+                <a href="{{ route('daftar_persalinan') }}" class="card">
                     <img src="{{ asset('assets/img/pendaftaranpersalinan.png') }}" class="d-block mx-auto" alt="">
                     <p class="text-center">Pendaftaran <br> Persalinan</p>
                 </a>
             </div>
             <div class="col-6 mb-4">
-                <a href="#" class="card">
+                <a href="{{ route('daftar_kb') }}" class="card">
                     <img src="{{ asset('assets/img/pendaftarankb.png') }}" class="d-block mx-auto" alt="">
                     <p class="text-center">Pendaftaran Keluarga
                         Berencana</p>

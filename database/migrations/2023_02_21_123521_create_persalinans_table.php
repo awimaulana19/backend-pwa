@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('persalinans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('no_registrasi');
             $table->string('nama');
             $table->string('umur');
             $table->string('hari');
-            $table->string('ttl');
+            $table->date('ttl');
             $table->string('pukul');
             $table->string('jk');
             $table->string('bb_pb');
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->string('pekerjaan');
             $table->string('alamat');
             $table->string('keterangan');
+            $table->string('antrian')->nullable();
             $table->boolean('status')->default(false);
             $table->timestamps();
         });

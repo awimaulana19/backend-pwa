@@ -45,6 +45,10 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::group(['middleware' => ['auth', 'cekLevel:pasien']], function () {
         Route::get('home', [UserController::class, 'halaman_user'])->name('home');
         Route::get('registrasi', [UserController::class, 'registrasi'])->name('registrasi');
+        Route::get('daftar-persalinan', [UserController::class, 'daftar_persalinan'])->name('daftar_persalinan');
+        Route::post('daftar-persalinan', [UserController::class, 'persalinan_action'])->name('daftar_persalinan');
+        Route::get('daftar-kb', [UserController::class, 'daftar_kb'])->name('daftar_kb');
+        Route::post('daftar-kb', [UserController::class, 'kb_action'])->name('daftar_kb');
         Route::get('riwayat', [UserController::class, 'riwayat'])->name('riwayat');
         Route::get('profile', [UserController::class, 'profile'])->name('profile');
         Route::get('informasi', [UserController::class, 'informasi'])->name('informasi');
