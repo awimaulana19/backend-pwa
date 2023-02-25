@@ -24,8 +24,9 @@ class UserController extends Controller
     public function riwayat()
     {
         $user_id = auth()->user();
-        $riwayat = Pendaftaran::where('user_id', '=', $user_id->id)->where('status', '=', '1')->get();
-        return view('User.Pendaftaran.riwayat', compact('riwayat'));
+        $riwayat_persalinan = Persalinan::where('user_id', '=', $user_id->id)->get();
+        $riwayat_kb = Keluargaberencana::where('user_id', '=', $user_id->id)->get();
+        return view('User.Pendaftaran.riwayat', compact('riwayat_persalinan', 'riwayat_kb'));
     }
     public function profile()
     {
@@ -41,11 +42,19 @@ class UserController extends Controller
     // halaman pendaftaran kb
     public function pendaftarankb()
     {
-        return view('User.pendaftaran.kb');
+        $pendaftaran = Pendaftaran::get();
+        if ($pendaftaran->isNotEmpty()) {
+            $antrian_sekarang = $pendaftaran[0]->antrian_sekarang;
+            return view('User.pendaftaran.kb', compact('antrian_sekarang'));
+        }else{
+            $antrian_sekarang = 1;
+            return view('User.pendaftaran.kb', compact('antrian_sekarang'));
+        }
     }
 
     public function storekb(Request $request)
     {
+        $antrian_sekarang = $request->antrian_sekarang;
         $data = $request->validate([
             'user_id' => 'required',
             'nama' => 'required',
@@ -56,6 +65,7 @@ class UserController extends Controller
         ]);
         $kb = new Pendaftaran();
         $kb->fill($data);
+        $kb->antrian_sekarang = $antrian_sekarang;
 
         $kb->save();
 
@@ -66,11 +76,19 @@ class UserController extends Controller
     // halaman pendaftaran persalinan
     public function pendaftaranpersalinan()
     {
-        return view('User.pendaftaran.persalinan');
+        $pendaftaran = Pendaftaran::get();
+        if ($pendaftaran->isNotEmpty()) {
+            $antrian_sekarang = $pendaftaran[0]->antrian_sekarang;
+            return view('User.pendaftaran.persalinan', compact('antrian_sekarang'));
+        }else{
+            $antrian_sekarang = 1;
+            return view('User.pendaftaran.persalinan', compact('antrian_sekarang'));
+        }
     }
 
     public function storepersalinan(Request $request)
     {
+        $antrian_sekarang = $request->antrian_sekarang;
         $data = $request->validate([
             'user_id' => 'required',
             'nama' => 'required',
@@ -81,6 +99,7 @@ class UserController extends Controller
         ]);
         $persalinan = new Pendaftaran();
         $persalinan->fill($data);
+        $persalinan->antrian_sekarang = $antrian_sekarang;
 
         $persalinan->save();
 

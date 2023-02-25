@@ -63,7 +63,7 @@ class PendaftaranController extends Controller
 
         $persalinan->save();
 
-        Pendaftaran::query()->update(['antrian_sekarang' => $request->antrian]);
+        Pendaftaran::query()->update(['antrian_sekarang' => $request->antrian + 1]);
         
         $pendaftaran = Pendaftaran::Where('id', $request->pendaftaran_id)->first();
         
@@ -92,7 +92,7 @@ class PendaftaranController extends Controller
 
         $kb->save();
 
-        Pendaftaran::query()->update(['antrian_sekarang' => $request->antrian]);
+        Pendaftaran::query()->update(['antrian_sekarang' => $request->antrian + 1]);
         
         $pendaftaran = Pendaftaran::Where('id', $request->pendaftaran_id)->first();
         

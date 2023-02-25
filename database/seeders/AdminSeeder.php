@@ -22,5 +22,21 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('admin'),
             'remember_token' => Str::random(60)
         ]);
+        
+        User::create([
+            'roles' => 'pasien',
+            'username' => 'pasien',
+            'password' => bcrypt('pasien'),
+            'is_verification' => 1,
+            'remember_token' => Str::random(60)
+        ]);
+
+        User::create([
+            'roles' => 'pasien',
+            'username' => 'pasien2',
+            'password' => bcrypt('pasien2'),
+            'is_verification' => 1,
+            'remember_token' => Str::random(60)
+        ]);
     }
 }
