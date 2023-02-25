@@ -18,13 +18,13 @@ class UserController extends Controller
     public function registrasi()
     {
         $user_id = auth()->user();
-        $pendaftaran = Pendaftaran::where('user_id', '=', $user_id->id)->get();
+        $pendaftaran = Pendaftaran::where('user_id', '=', $user_id->id)->where('status', '=', '0')->get();
         return view('User.Pendaftaran.registrasi', compact('pendaftaran'));
     }
     public function riwayat()
     {
         $user_id = auth()->user();
-        $riwayat = Pendaftaran::where('user_id', '=', $user_id->id)->get();
+        $riwayat = Pendaftaran::where('user_id', '=', $user_id->id)->where('status', '=', '1')->get();
         return view('User.Pendaftaran.riwayat', compact('riwayat'));
     }
     public function profile()

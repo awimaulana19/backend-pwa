@@ -48,11 +48,11 @@
             @foreach ($pendaftaran as $item)
                 <div class="col-12">
                     <hr>
-                    <p class="headtitle">Pendaftaran {{ $item->periksa }}</p>
+                    <p class="title">Pendaftaran {{ $item->periksa }}</p>
                     <div class="d-flex">
-                        <p class="text-danger">Antrian Sekarang <span class="fw-bold">{{ $item->antrian_sekarang }}</span>
+                        <p class="text-danger subtitle">Antrian Sekarang <span class="fw-bold">{{ $item->antrian_sekarang }}</span>
                         </p>
-                        <p class="text-success ms-auto">Antrian Anda <span class="fw-bold">{{ $item->antrian }}</span></p>
+                        <p class="text-success ms-auto subtitle">Antrian Anda <span class="fw-bold">{{ $item->antrian }}</span></p>
                     </div>
                     <hr>
                 </div>

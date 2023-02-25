@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LoginController extends Controller
 {
@@ -40,6 +41,7 @@ class LoginController extends Controller
         $data = $user;
 
         $data->save();
+        Alert::success('Sukses', 'Tunggu Akun anda Verifikasi dari Admin');
         return redirect('/');
     }
 
