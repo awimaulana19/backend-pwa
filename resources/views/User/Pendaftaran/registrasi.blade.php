@@ -45,6 +45,18 @@
                 <p class="title">Nomor Antrian</p>
                 <p class="subtitle">Tampil data antrian anda</p>
             </div>
+            @foreach ($pendaftaran as $item)
+                <div class="col-12">
+                    <hr>
+                    <p class="headtitle">Pendaftaran {{ $item->periksa }}</p>
+                    <div class="d-flex">
+                        <p class="text-danger">Antrian Sekarang <span class="fw-bold">{{ $item->antrian_sekarang }}</span>
+                        </p>
+                        <p class="text-success ms-auto">Antrian Anda <span class="fw-bold">{{ $item->antrian }}</span></p>
+                    </div>
+                    <hr>
+                </div>
+            @endforeach
         </div>
     </section>
 @endsection

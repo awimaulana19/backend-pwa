@@ -17,11 +17,15 @@ class UserController extends Controller
     }
     public function registrasi()
     {
-        return view('User.Pendaftaran.registrasi');
+        $user_id = auth()->user();
+        $pendaftaran = Pendaftaran::where('user_id', '=', $user_id->id)->get();
+        return view('User.Pendaftaran.registrasi', compact('pendaftaran'));
     }
     public function riwayat()
     {
-        return view('User.Pendaftaran.riwayat');
+        $user_id = auth()->user();
+        $riwayat = Pendaftaran::where('user_id', '=', $user_id->id)->get();
+        return view('User.Pendaftaran.riwayat', compact('riwayat'));
     }
     public function profile()
     {

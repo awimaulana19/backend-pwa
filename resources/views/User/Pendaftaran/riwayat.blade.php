@@ -11,18 +11,15 @@
         </div>
 
         <div class="row mt-4">
-            <div class="col-12">
-                <p class="headtitle">Pendaftaran Awal Kehamilan</p>
-                <p class="success">Sukses</p>
-                <p class="headsubtitle">Ahad, 12 Maret 2023</p>
-                <hr>
-            </div>
-            <div class="col-12">
-                <p class="headtitle">Pendaftaran Awal Kehamilan</p>
-                <p class="success">Sukses</p>
-                <p class="headsubtitle">Ahad, 12 Maret 2023</p>
-                <hr>
-            </div>
+            @foreach ($riwayat as $item)
+                <div class="col-12">
+                    <p class="headtitle">Pendaftaran {{ $item->periksa }}</p>
+                    <p class="success">Sukses</p>
+                    <p class="headsubtitle">Ahad, 12 Maret 2023</p>
+                    <a href="" class="btn btn-success text-white w-100 mt-2">Hasil Pemeriksaan</a>
+                    <hr>
+                </div>
+            @endforeach
         </div>
     </section>
 @endsection
