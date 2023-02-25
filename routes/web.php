@@ -9,6 +9,7 @@ use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\KeluargaberencanaController;
 use App\Http\Controllers\admin\KunjunganUlangKehamilanController;
 use App\Http\Controllers\admin\PemeriksaanAwalKehamilanController;
+use App\Http\Controllers\DataPenggunaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,18 +31,18 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::namespace('App\Http\Controllers')->group(function () {
-        // route dashboard admin
-        Route::group(['middleware' => ['auth', 'cekLevel:admin']], function () {
-            // dashboard
-            Route::get('dashboard-admin', [LoginController::class, 'dashboard_admin'])->name('dashboard-admin');
-            Route::get('/persalinan', [PersalinanController::class, 'index']);
-            Route::get('/persalinan/show/{id}', [PersalinanController::class, 'show']);
-            Route::get('/persalinan/{id}', [PersalinanController::class, 'hapus']);
-            Route::get('/persalinan/selesai/{id}', [PersalinanController::class, 'selesai']);
-            Route::get('/kb', [KeluargaberencanaController::class, 'index']);
-            Route::get('/kb/show/{id}', [KeluargaberencanaController::class, 'show']);
-            Route::get('/kb/{id}', [KeluargaberencanaController::class, 'hapus']);
-            Route::get('/kb/selesai/{id}', [KeluargaberencanaController::class, 'selesai']);
+    // route dashboard admin
+    Route::group(['middleware' => ['auth', 'cekLevel:admin']], function () {
+        // dashboard
+        Route::get('dashboard-admin', [LoginController::class, 'dashboard_admin'])->name('dashboard-admin');
+        Route::get('/persalinan', [PersalinanController::class, 'index']);
+        Route::get('/persalinan/show/{id}', [PersalinanController::class, 'show']);
+        Route::get('/persalinan/{id}', [PersalinanController::class, 'hapus']);
+        Route::get('/persalinan/selesai/{id}', [PersalinanController::class, 'selesai']);
+        Route::get('/kb', [KeluargaberencanaController::class, 'index']);
+        Route::get('/kb/show/{id}', [KeluargaberencanaController::class, 'show']);
+        Route::get('/kb/{id}', [KeluargaberencanaController::class, 'hapus']);
+        Route::get('/kb/selesai/{id}', [KeluargaberencanaController::class, 'selesai']);
 
         Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
         Route::get('/pendaftaran/periksa/{id}', [PendaftaranController::class, 'periksa']);
@@ -50,8 +51,52 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'hapus']);
         Route::get('/pendaftaran-reset', [PendaftaranController::class, 'reset']);
 
-        Route::post('periksa-pemeriksaan-awal-kehamilan',[PendaftaranController::class,'pemeriksaan_awal_kehamilan']);
-        Route::post('periksa-kunjungan-ulang-kehamilan',[PendaftaranController::class,'kunjungan_ulang_kehamilan']);
+        Route::post('periksa-pemeriksaan-awal-kehamilan', [PendaftaranController::class, 'pemeriksaan_awal_kehamilan']);
+        Route::post('periksa-kunjungan-ulang-kehamilan', [PendaftaranController::class, 'kunjungan_ulang_kehamilan']);
+
+        Route::get('/persalinan', [PersalinanController::class, 'index']);
+        Route::get('/persalinan/show/{id}', [PersalinanController::class, 'show']);
+        Route::get('/persalinan/{id}', [PersalinanController::class, 'hapus']);
+        Route::get('/kb', [KeluargaberencanaController::class, 'index']);
+        Route::get('/kb/show/{id}', [KeluargaberencanaController::class, 'show']);
+        Route::get('/kb/{id}', [KeluargaberencanaController::class, 'hapus']);
+
+        Route::resource('pemeriksaan-awal-kehamilan', PemeriksaanAwalKehamilanController::class);
+        Route::resource('kunjungan-ulang-kehamilan', KunjunganUlangKehamilanController::class);
+
+        Route::get('/datapasien', [DataPenggunaController::class, 'dataPasien'])->name('datapasien.index');
+        Route::get('/datapasien/show/{id}', [DataPenggunaController::class, 'showDataPasien']);
+        Route::get('/datapasien/{id}', [DataPenggunaController::class, 'hapusDataPasien']);
+        Route::put('updatestatus/{id}', [DataPenggunaController::class, 'updateStatus'])->name('updateStatus');
+
+        Route::get('/databidan', [DataPenggunaController::class, 'dataBidan'])->name('databidan.index');
+        Route::get('/databidan/create', [DataPenggunaController::class, 'createbidan'])->name('databidan.create');
+        Route::post('/databidan', [DataPenggunaController::class, 'tambahDataBidan'])->name('databidan.store');
+        Route::get('/databidan/{id}', [DataPenggunaController::class, 'hapusDataBidan']);
+    });
+
+    // route dashboard bidan
+    Route::group(['middleware' => ['auth', 'cekLevel:bidan']], function () {
+        // dashboard
+        Route::get('dashboard-admin', [LoginController::class, 'dashboard_admin'])->name('dashboard-admin');
+        Route::get('/persalinan', [PersalinanController::class, 'index']);
+        Route::get('/persalinan/show/{id}', [PersalinanController::class, 'show']);
+        Route::get('/persalinan/{id}', [PersalinanController::class, 'hapus']);
+        Route::get('/persalinan/selesai/{id}', [PersalinanController::class, 'selesai']);
+        Route::get('/kb', [KeluargaberencanaController::class, 'index']);
+        Route::get('/kb/show/{id}', [KeluargaberencanaController::class, 'show']);
+        Route::get('/kb/{id}', [KeluargaberencanaController::class, 'hapus']);
+        Route::get('/kb/selesai/{id}', [KeluargaberencanaController::class, 'selesai']);
+
+        Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
+        Route::get('/pendaftaran/periksa/{id}', [PendaftaranController::class, 'periksa']);
+        Route::post('periksa-persalinan', [PendaftaranController::class, 'persalinan_action'])->name('periksa_persalinan');
+        Route::post('periksa-kb', [PendaftaranController::class, 'kb_action'])->name('periksa_kb');
+        Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'hapus']);
+        Route::get('/pendaftaran-reset', [PendaftaranController::class, 'reset']);
+
+        Route::post('periksa-pemeriksaan-awal-kehamilan', [PendaftaranController::class, 'pemeriksaan_awal_kehamilan']);
+        Route::post('periksa-kunjungan-ulang-kehamilan', [PendaftaranController::class, 'kunjungan_ulang_kehamilan']);
 
         Route::get('/persalinan', [PersalinanController::class, 'index']);
         Route::get('/persalinan/show/{id}', [PersalinanController::class, 'show']);
@@ -92,4 +137,3 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::post('pendaftarankunjunganulang', [UserController::class, 'storekunjunganulang'])->name('kunjunganulang.store');
     });
 });
-

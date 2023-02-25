@@ -52,12 +52,9 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
-            if (auth()->user()->roles == 'admin') {
+            if (auth()->user()->roles == 'admin' || auth()->user()->roles == 'bidan') {
                 return redirect()->route('dashboard-admin');
                 return view('Admin.Dashboard.dashboard')->with('users', $request);
-            } else if (auth()->user()->roles == 'bidan') {
-                return redirect()->route('dashboard-pasien');
-                return view('Bidan.Dashboard.dashboard')->with('users', $request);
             } else {
                 if (auth()->user()->roles == 'pasien' && auth()->user()->is_verification == 1) {
                     return redirect()->route('home');

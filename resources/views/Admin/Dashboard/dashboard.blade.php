@@ -1,6 +1,4 @@
-@extends('Admin.Layouts.app', ['title' => 'Dashboard Admin'])
+@extends('Admin.Layouts.app', ['title' => 'Dashboard'])
 
 @section('content')
-    
 @endsection
-

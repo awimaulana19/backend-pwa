@@ -19,11 +19,13 @@
             {{-- data kehamilan --}}
             <li class="menu-header">Data Pemeriksaan Kehamilan</li>
             <li class="{{ $title == 'Pemeriksaan Awal' ? 'active' : '' }}">
-                <a class="nav-link" href="{{route('pemeriksaan-awal-kehamilan.index')}}"><i class="bi bi-calendar-plus-fill"></i>
+                <a class="nav-link" href="{{ route('pemeriksaan-awal-kehamilan.index') }}"><i
+                        class="bi bi-calendar-plus-fill"></i>
                     <span>Pemeriksaan Awal</span></a>
             </li>
             <li class="{{ $title == 'Kunjungan Ulang' ? 'active' : '' }}">
-                <a class="nav-link" href="{{route('kunjungan-ulang-kehamilan.index')}}"><i class="bi bi-calendar2-check-fill"></i>
+                <a class="nav-link" href="{{ route('kunjungan-ulang-kehamilan.index') }}"><i
+                        class="bi bi-calendar2-check-fill"></i>
                     <span>Kunjungan Ulang</span></a>
             </li>
 
@@ -49,14 +51,17 @@
             </li>
 
             {{-- data pengguna --}}
-            <li class="menu-header">Data Pengguna</li>
-            <li class="{{ $title == 'Data Bidan' ? 'active' : '' }}">
-                <a class="nav-link" href=""><i class="bi bi-person-rolodex"></i>
-                    <span>Data Bidan</span></a>
-            </li>
-            <li class="{{ $title == 'Data Pasien' ? 'active' : '' }}">
-                <a class="nav-link" href=""><i class="bi bi-clipboard2-pulse-fill"></i>
-                    <span>Data Pasien</span></a>
-            </li>
+            <div {{ auth()->user()->roles == 'bidan' ? 'hidden' : '' }}>
+                <li class="menu-header">Data Pengguna</li>
+                <li class="{{ $title == 'Data Bidan' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('databidan.index') }}"><i class="bi bi-person-rolodex"></i>
+                        <span>Data Bidan</span></a>
+                </li>
+                <li class="{{ $title == 'Data Pasien' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('datapasien.index') }}"><i
+                            class="bi bi-clipboard2-pulse-fill"></i>
+                        <span>Data Pasien</span></a>
+                </li>
+            </div>
     </aside>
 </div>
