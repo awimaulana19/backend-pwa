@@ -11,7 +11,7 @@ class PendaftaranController extends Controller
 {
     public function index()
     {
-        $pendaftaran =  Pendaftaran::orderBy('antrian', 'asc')->get();
+        $pendaftaran =  Pendaftaran::Where('status', false)->orderBy('antrian', 'asc')->get();
         return view('Admin.RiwayatPendaftaran.riwayatpendaftaran', compact('pendaftaran'));
     }
 
@@ -67,7 +67,8 @@ class PendaftaranController extends Controller
         
         $pendaftaran = Pendaftaran::Where('id', $request->pendaftaran_id)->first();
         
-        $pendaftaran->delete();
+        $pendaftaran->status = true;
+        $pendaftaran->update();
 
         return redirect('/pendaftaran');
     }
@@ -95,7 +96,8 @@ class PendaftaranController extends Controller
         
         $pendaftaran = Pendaftaran::Where('id', $request->pendaftaran_id)->first();
         
-        $pendaftaran->delete();
+        $pendaftaran->status = true;
+        $pendaftaran->update();
 
         return redirect('/pendaftaran');
     }

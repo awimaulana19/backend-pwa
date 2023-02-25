@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('alamat')->nullable();
             $table->string('periksa');
             $table->string('antrian_sekarang')->default(1);
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
