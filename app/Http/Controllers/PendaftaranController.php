@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KunjunganUlangKehamilan;
+use App\Models\PemeriksaanAwalKehamilan;
 use App\Models\Persalinan;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
@@ -22,13 +24,17 @@ class PendaftaranController extends Controller
             return view('Admin.RiwayatPendaftaran.periksapersalinan', compact('pendaftaran'));
         } elseif ($pendaftaran->periksa == "KB") {
             return view('Admin.RiwayatPendaftaran.periksakb', compact('pendaftaran'));
+        }elseif($pendaftaran->periksa == "PemeriksaanAwal"){
+            return view('Admin.RiwayatPendaftaran.periksa-pemeriksaan-awal-kehamilan',compact('pendaftaran'));
+        }elseif($pendaftaran->periksa == "KunjunganUlang"){
+            return view('Admin.RiwayatPendaftaran.periksa-kunjungan-ulang-kehamilan',compact('pendaftaran'));
         }
     }
 
     public function hapus($id)
     {
         $pendaftaran = Pendaftaran::Where('id', $id)->first();
-        
+
         $pendaftaran->delete();
 
         return redirect('/pendaftaran');
@@ -37,7 +43,7 @@ class PendaftaranController extends Controller
     public function reset()
     {
         $pendaftaran = Pendaftaran::get();
-        
+
         Pendaftaran::destroy($pendaftaran);
 
         return redirect('/pendaftaran');
@@ -64,9 +70,9 @@ class PendaftaranController extends Controller
         $persalinan->save();
 
         Pendaftaran::query()->update(['antrian_sekarang' => $request->antrian + 1]);
-        
+
         $pendaftaran = Pendaftaran::Where('id', $request->pendaftaran_id)->first();
-        
+
         $pendaftaran->status = true;
         $pendaftaran->update();
 
@@ -93,9 +99,58 @@ class PendaftaranController extends Controller
         $kb->save();
 
         Pendaftaran::query()->update(['antrian_sekarang' => $request->antrian + 1]);
-        
+
         $pendaftaran = Pendaftaran::Where('id', $request->pendaftaran_id)->first();
-        
+
+        $pendaftaran->status = true;
+        $pendaftaran->update();
+
+        return redirect('/pendaftaran');
+    }
+
+    public function pemeriksaan_awal_kehamilan(Request $request)
+    {
+        PemeriksaanAwalKehamilan::create([
+            'user_id' => $request->user_id,
+            'nama' => $request->nama,
+            'umur' => $request->umur,
+            'paritas' => $request->paritas,
+            'anak_perkecil' => $request->anak_perkecil,
+            'td_bb' => $request->td_bb,
+            'hasil_pemeriksaan' => $request->hasil_pemeriksaan,
+            'keterangan' => $request->keterangan,
+            'alamat' => $request->alamat,
+            'tanggal' => $request->tanggal,
+        ]);
+
+        Pendaftaran::query()->update(['antrian_sekarang' => $request->antrian + 1]);
+
+        $pendaftaran = Pendaftaran::Where('id', $request->pendaftaran_id)->first();
+
+        $pendaftaran->status = true;
+        $pendaftaran->update();
+
+        return redirect('/pendaftaran');
+    }
+
+    public function kunjungan_ulang_kehamilan(Request $request)
+    {
+        KunjunganUlangKehamilan::create([
+            'user_id' => $request->user_id,
+            'nama' => $request->nama,
+            'umur' => $request->umur,
+            'paritas' => $request->paritas,
+            'tanggal' => $request->tanggal,
+            'td_bb' => $request->td_bb,
+            'umur_kelahiran' => $request->umur_kelahiran,
+            'keterangan' => $request->keterangan,
+            'alamat' => $request->alamat,
+        ]);
+
+        Pendaftaran::query()->update(['antrian_sekarang' => $request->antrian + 1]);
+
+        $pendaftaran = Pendaftaran::Where('id', $request->pendaftaran_id)->first();
+
         $pendaftaran->status = true;
         $pendaftaran->update();
 

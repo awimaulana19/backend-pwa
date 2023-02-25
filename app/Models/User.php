@@ -58,4 +58,14 @@ class User extends Authenticatable
     public function pendaftaran(){
         return $this->hasMany(Pendaftaran::class);
     }
+
+    public function pemeriksaan_awal(){
+        return $this->hasMany(PemeriksaanAwalKehamilan::class,'user_id');
+    }
+
+    public function kunjungan_ulang()
+    {
+        return $this->hasMany(KunjunganUlangKehamilan::class,'user_id');
+    }
 }
+

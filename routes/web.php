@@ -4,8 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PersalinanController;
+use App\Http\Controllers\KritikSaranController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\KeluargaberencanaController;
+use App\Http\Controllers\admin\KunjunganUlangKehamilanController;
+use App\Http\Controllers\admin\PemeriksaanAwalKehamilanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +30,18 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::namespace('App\Http\Controllers')->group(function () {
-    // route dashboard admin
-    Route::group(['middleware' => ['auth', 'cekLevel:admin']], function () {
-        // dashboard
-        Route::get('dashboard-admin', [LoginController::class, 'dashboard_admin'])->name('dashboard-admin');
+        // route dashboard admin
+        Route::group(['middleware' => ['auth', 'cekLevel:admin']], function () {
+            // dashboard
+            Route::get('dashboard-admin', [LoginController::class, 'dashboard_admin'])->name('dashboard-admin');
+            Route::get('/persalinan', [PersalinanController::class, 'index']);
+            Route::get('/persalinan/show/{id}', [PersalinanController::class, 'show']);
+            Route::get('/persalinan/{id}', [PersalinanController::class, 'hapus']);
+            Route::get('/persalinan/selesai/{id}', [PersalinanController::class, 'selesai']);
+            Route::get('/kb', [KeluargaberencanaController::class, 'index']);
+            Route::get('/kb/show/{id}', [KeluargaberencanaController::class, 'show']);
+            Route::get('/kb/{id}', [KeluargaberencanaController::class, 'hapus']);
+            Route::get('/kb/selesai/{id}', [KeluargaberencanaController::class, 'selesai']);
 
         Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
         Route::get('/pendaftaran/periksa/{id}', [PendaftaranController::class, 'periksa']);
@@ -38,6 +49,10 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::post('periksa-kb', [PendaftaranController::class, 'kb_action'])->name('periksa_kb');
         Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'hapus']);
         Route::get('/pendaftaran-reset', [PendaftaranController::class, 'reset']);
+
+        Route::post('periksa-pemeriksaan-awal-kehamilan',[PendaftaranController::class,'pemeriksaan_awal_kehamilan']);
+        Route::post('periksa-kunjungan-ulang-kehamilan',[PendaftaranController::class,'kunjungan_ulang_kehamilan']);
+
         Route::get('/persalinan', [PersalinanController::class, 'index']);
         Route::get('/persalinan/show/{id}', [PersalinanController::class, 'show']);
         Route::get('/persalinan/{id}', [PersalinanController::class, 'hapus']);
@@ -77,3 +92,4 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::post('pendaftarankunjunganulang', [UserController::class, 'storekunjunganulang'])->name('kunjunganulang.store');
     });
 });
+

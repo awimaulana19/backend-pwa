@@ -14,7 +14,7 @@
                 <form action="{{ route('kunjunganulang.store') }}" method="POST">
                     @csrf
                     <input type="text" name="user_id" value="{{ auth()->user()->id }}" hidden>
-                    <input type="text" name="periksa" value="Kunjungan Ulang" hidden>
+                    <input type="text" name="periksa" value="KunjunganUlang" hidden>
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
                         <input type="text" id="nama" name="nama" class="form-control"

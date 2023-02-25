@@ -17,7 +17,7 @@ class KunjunganUlangKehamilanController extends Controller
     public function destroy($id)
     {
         $kunjungan = KunjunganUlangKehamilan::findOrFail($id);
-        $kunjungan->destroy();
+        $kunjungan->delete();
         return redirect()->back();
     }
 }

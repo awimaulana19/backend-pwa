@@ -15,14 +15,16 @@ return new class extends Migration
     {
         Schema::create('pemeriksaan_awal_kehamilan', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('nama');
             $table->string('umur');
             $table->string('paritas');
             $table->string('anak_perkecil');
-            $table->string('td/bb');
+            $table->string('td_bb');
             $table->string('hasil_pemeriksaan');
             $table->string('keterangan')->nullable();
             $table->longText('alamat');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

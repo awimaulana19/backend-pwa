@@ -15,13 +15,15 @@ return new class extends Migration
     {
         Schema::create('kunjungan_ulang_kehamilan', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('nama');
             $table->string('umur');
             $table->string('paritas');
-            $table->string('td/bb');
+            $table->string('td_bb');
             $table->string('umur_kelahiran');
             $table->string('keterangan')->nullable();
             $table->longText('alamat');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

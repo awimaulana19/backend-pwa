@@ -40,12 +40,16 @@
                             <td>{{ $item->alamat }}</td>
                             <td>{{ $item->paritas }}</td>
                             <td>{{ $item->td_bb }}</td>
-                            <td>{{ $item->umur_kehamilan }}</td>
+                            <td>{{ $item->umur_kelahiran }}</td>
                             <td>{{ $item->keterangan }}</td>
                             <td class="text-center">
-                                <a class="btn btn-danger py-2" href="{{ route('kunjungan-ulang-kehamilan.destroy' . $item->id) }}">
-                                    <i class="fs-6 bi bi-trash"></i>
-                                </a>
+                                <form action = "{{ route('kunjungan-ulang-kehamilan.destroy', $item->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger py-2">
+                                        <i class="fs-6 bi bi-trash"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

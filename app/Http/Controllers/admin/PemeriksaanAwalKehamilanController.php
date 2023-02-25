@@ -17,7 +17,7 @@ class PemeriksaanAwalKehamilanController extends Controller
     public function destroy($id)
     {
         $periksa = PemeriksaanAwalKehamilan::findOrFail($id);
-        $periksa->destroy();
+        $periksa->delete();
         return redirect()->back();
     }
 }

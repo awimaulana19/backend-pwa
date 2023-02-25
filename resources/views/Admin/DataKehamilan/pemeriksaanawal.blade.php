@@ -45,9 +45,13 @@
                                 <td>{{ $item->hasil_pemeriksaan }}</td>
                                 <td>{{ $item->keterangan }}</td>
                                 <td class="text-center">
-                                    <a class="btn btn-danger py-2" href="{{ route('pemeriksaan-awal-kehamilan.destroy' . $item->id) }}">
-                                        <i class="fs-6 bi bi-trash"></i>
-                                    </a>
+                                    <form action = "{{ route('pemeriksaan-awal-kehamilan.destroy', $item->id) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger py-2">
+                                            <i class="fs-6 bi bi-trash"></i>
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
