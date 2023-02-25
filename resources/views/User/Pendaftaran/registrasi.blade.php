@@ -12,27 +12,27 @@
 
         <div class="row mt-4">
             <div class="col-6 mb-4">
-                <a href="#" class="card">
+                <a href="{{ route('pendaftaranpemeriksaanawal') }}" class="card">
                     <img src="{{ asset('assets/img/awalkehamilan.png') }}" class="d-block mx-auto" alt="">
                     <p class="text-center">Pendaftaran Pemeriksaan
                         Awal Kehamilan</p>
                 </a>
             </div>
             <div class="col-6 mb-4">
-                <a href="#" class="card">
+                <a href="{{ route('pendaftarankunjunganulang') }}" class="card">
                     <img src="{{ asset('assets/img/ulangkehamilan.png') }}" class="d-block mx-auto" alt="">
                     <p class="text-center">Pendaftaran Kunjungan
                         Ulang Kehamilan</p>
                 </a>
             </div>
             <div class="col-6 mb-4">
-                <a href="" class="card">
+                <a href="{{ route('pendaftaranpersalinan') }}" class="card">
                     <img src="{{ asset('assets/img/pendaftaranpersalinan.png') }}" class="d-block mx-auto" alt="">
                     <p class="text-center">Pendaftaran <br> Persalinan</p>
                 </a>
             </div>
             <div class="col-6 mb-4">
-                <a href="" class="card">
+                <a href="{{ route('pendaftarankb') }}" class="card">
                     <img src="{{ asset('assets/img/pendaftarankb.png') }}" class="d-block mx-auto" alt="">
                     <p class="text-center">Pendaftaran Keluarga
                         Berencana</p>

@@ -31,7 +31,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
     Route::group(['middleware' => ['auth', 'cekLevel:admin']], function () {
         // dashboard
         Route::get('dashboard-admin', [LoginController::class, 'dashboard_admin'])->name('dashboard-admin');
-        
+
         Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
         Route::get('/pendaftaran/periksa/{id}', [PendaftaranController::class, 'periksa']);
         Route::post('periksa-persalinan', [PendaftaranController::class, 'persalinan_action'])->name('periksa_persalinan');
@@ -45,7 +45,7 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::get('/kb/show/{id}', [KeluargaberencanaController::class, 'show']);
         Route::get('/kb/{id}', [KeluargaberencanaController::class, 'hapus']);
 
-        Route::resource('pemeriksaan-awal-kehamilan',PemeriksaanAwalKehamilanController::class);
+        Route::resource('pemeriksaan-awal-kehamilan', PemeriksaanAwalKehamilanController::class);
         Route::resource('kunjungan-ulang-kehamilan', KunjunganUlangKehamilanController::class);
     });
 
@@ -59,5 +59,21 @@ Route::namespace('App\Http\Controllers')->group(function () {
 
         Route::get('informasi', [UserController::class, 'informasi'])->name('informasi');
         Route::post('informasi', [KritikSaranController::class, 'store'])->name('kritiksaran.store');
+
+        // pendaftaran kb
+        Route::get('pendaftarankb', [UserController::class, 'pendaftarankb'])->name('pendaftarankb');
+        Route::post('pendaftarankb', [UserController::class, 'storekb'])->name('kb.store');
+
+        // pendaftaran persalinan
+        Route::get('pendaftaranpersalinan', [UserController::class, 'pendaftaranpersalinan'])->name('pendaftaranpersalinan');
+        Route::post('pendaftaranpersalinan', [UserController::class, 'storepersalinan'])->name('persalinan.store');
+
+        // pendaftaran pemeriksaan awal
+        Route::get('pendaftaranpemeriksaanawal', [UserController::class, 'pendaftaranpemeriksaanawal'])->name('pendaftaranpemeriksaanawal');
+        Route::post('pendaftaranpemeriksaanawal', [UserController::class, 'storepemeriksaanawal'])->name('pemeriksaanawal.store');
+
+        // pendaftaran kunjungan ulang
+        Route::get('pendaftarankunjunganulang', [UserController::class, 'pendaftarankunjunganulang'])->name('pendaftarankunjunganulang');
+        Route::post('pendaftarankunjunganulang', [UserController::class, 'storekunjunganulang'])->name('kunjunganulang.store');
     });
 });

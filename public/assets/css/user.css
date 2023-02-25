@@ -28,7 +28,7 @@ header {
 }
 .navbar .nav-item {
     color: #9aa4ad;
-    margin: 0px 24px;
+    margin: 0px 20px;
     text-decoration: none;
     transition: all ease-in-out 0.3s;
 }
@@ -183,7 +183,9 @@ p {
 #informasi iframe {
     border-radius: 8px;
 }
-#informasi .btn, #daftar .btn {
+#informasi .btn,
+#daftar .btn,
+#registrasi .btn {
     border-radius: 8px;
     background-color: #55abf8;
     color: #fff;
@@ -191,11 +193,27 @@ p {
     transition: all ease-in-out 0.3s;
     font-weight: 500;
 }
-#informasi .btn:hover, #daftar .btn:hover {
+#informasi .btn:hover,
+#daftar .btn:hover,
+#registrasi .btn:hover {
     background-color: transparent;
     border: 1px solid #55abf8;
     transition: all ease-in-out 0.3s;
     color: #55abf8;
+}
+label {
+    font-size: 14px;
+}
+.form-control::-webkit-input-placeholder {
+    font-size: 14px;
+}
+
+.form-control:-moz-input-placeholder {
+    font-size: 14px;
+}
+
+.form-control:-ms-input-placeholder {
+    font-size: 14px;
 }
 
 @media (max-width: 575.98px) {
@@ -263,5 +281,24 @@ p {
     }
     #registrasi .card {
         padding: 10px;
+    }
+    label {
+        font-size: 12px;
+    }
+    .form-control::-webkit-input-placeholder {
+        font-size: 12px;
+    }
+
+    .form-control:-moz-input-placeholder {
+        font-size: 12px;
+    }
+
+    .form-control:-ms-input-placeholder {
+        font-size: 12px;
+    }
+    #informasi .btn,
+    #daftar .btn,
+    #registrasi .btn {
+        font-size: 12px;
     }
 }

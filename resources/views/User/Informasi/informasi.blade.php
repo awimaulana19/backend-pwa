@@ -27,11 +27,11 @@
                     <input type="text" name="email" hidden value="{{ auth()->user()->email }}">
                     <div class="mb-3">
                         <label for="kritik" class="form-label">Kritik</label>
-                        <textarea name="kritik" id="kritik" rows="3" class="form-control" placeholder="Masukkan Kritik Anda"></textarea>
+                        <textarea name="kritik" id="kritik" rows="3" class="form-control" placeholder="Masukkan Kritik Anda" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="saran" class="form-label">Saran</label>
-                        <textarea name="saran" id="saran" rows="3" class="form-control" placeholder="Masukkan Saran Anda"></textarea>
+                        <textarea name="saran" id="saran" rows="3" class="form-control" placeholder="Masukkan Saran Anda" required></textarea>
                     </div>
                     <button class="btn py-md-3 py-2 mx-auto w-100">Kirim</button>
                 </form>
