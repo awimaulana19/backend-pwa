@@ -22,11 +22,6 @@
                         <th>Nama</th>
                         <th>Umur</th>
                         <th>Alamat</th>
-                        <th>Peritas</th>
-                        <th>Anak Perkecil</th>
-                        <th>TD/BB</th>
-                        <th>Hasil Pemeriksaan</th>
-                        <th>Keterangan</th>
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
@@ -39,12 +34,14 @@
                                 <td>{{ $item->nama }}</td>
                                 <td>{{ $item->umur }}</td>
                                 <td>{{ $item->alamat }}</td>
-                                <td>{{ $item->paritas }}</td>
-                                <td>{{ $item->anak_perkecil }}</td>
-                                <td>{{ $item->td_bb }}</td>
-                                <td>{{ $item->hasil_pemeriksaan }}</td>
-                                <td>{{ $item->keterangan }}</td>
-                                <td class="text-center">
+                                <td class="text-center d-flex align-items-center">
+                                    <form action="{{route('pemeriksaan-awal-kehamilan.show', $item->id)}}" method="get">
+                                        @csrf
+                                        <button class="btn btn-info py-2 me-1" type="submit">
+                                            <i class="fs-6 bi bi-eye-fill"></i>
+                                        </button>
+                                    </form>
+
                                     <form action = "{{ route('pemeriksaan-awal-kehamilan.destroy', $item->id) }}" method="post">
                                         @csrf
                                         @method('delete')

@@ -14,6 +14,12 @@ class KunjunganUlangKehamilanController extends Controller
         return view('Admin.DataKehamilan.kunjunganulang',compact('kunjungan'));
     }
 
+    public function show($id)
+    {
+        $kunjungan = KunjunganUlangKehamilan::first();
+        return view('Admin.DataKehamilan.show-kunjungan-ulang',compact('kunjungan'));
+    }
+
     public function destroy($id)
     {
         $kunjungan = KunjunganUlangKehamilan::findOrFail($id);

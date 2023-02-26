@@ -12,7 +12,7 @@
         <ul class="sidebar-menu mt-3">
             <li class="menu-header">Dashboard</li>
             <li class="{{ $title == 'Dashboard Admin' ? 'active' : '' }}">
-                <a class="nav-link" href="/dashboard"><i class="bi bi-bar-chart-fill"></i>
+                <a class="nav-link" href="/dashboard-admin"><i class="bi bi-bar-chart-fill"></i>
                     <span>Dashboard</span></a>
             </li>
 
