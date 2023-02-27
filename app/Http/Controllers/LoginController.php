@@ -63,7 +63,7 @@ class LoginController extends Controller
             }
             else {
                 if (auth()->user()->roles == 'pasien' && auth()->user()->is_verification == 1) {
-                    return redirect()->route('home');
+                    return redirect()->route('user');
                 } else {
                     return back()->with('wait', 'akun anda belum di verifikasi oleh admin');
                 }

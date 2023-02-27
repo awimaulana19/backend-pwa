@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'OnlyAdmin' => \App\Http\Middleware\OnlyAdmin::class,
         'OnlyBidan' => \App\Http\Middleware\OnlyBidan::class,
         'OnlyPasien' => \App\Http\Middleware\OnlyPasien::class,
+        'ajax' => \App\Http\Middleware\AjaxMiddleware::class,
     ];
 }

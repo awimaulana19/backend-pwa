@@ -111,29 +111,24 @@ Route::namespace('App\Http\Controllers')->group(function () {
 
     // pasien
     Route::group(['middleware' => ['auth', 'OnlyPasien']], function () {
+        Route::get('user', [UserController::class, 'user'])->name('user');
+    });
+    
+    // pasien
+    Route::group(['middleware' => ['auth', 'ajax']], function () {
         Route::get('home', [UserController::class, 'halaman_user'])->name('home');
         Route::get('registrasi', [UserController::class, 'registrasi'])->name('registrasi');
         Route::get('riwayat', [UserController::class, 'riwayat'])->name('riwayat');
         Route::get('profile', [UserController::class, 'profile'])->name('profile');
-
-
         Route::get('informasi', [UserController::class, 'informasi'])->name('informasi');
-        Route::post('informasi', [KritikSaranController::class, 'store'])->name('kritiksaran.store');
-
-        // pendaftaran kb
-        Route::get('pendaftarankb', [UserController::class, 'pendaftarankb'])->name('pendaftarankb');
-        Route::post('pendaftarankb', [UserController::class, 'storekb'])->name('kb.store');
-
-        // pendaftaran persalinan
-        Route::get('pendaftaranpersalinan', [UserController::class, 'pendaftaranpersalinan'])->name('pendaftaranpersalinan');
-        Route::post('pendaftaranpersalinan', [UserController::class, 'storepersalinan'])->name('persalinan.store');
-
-        // pendaftaran pemeriksaan awal
+        Route::post('informasi', [KritikSaranController::class, 'store'])->name('kritiksaran_store');
         Route::get('pendaftaranpemeriksaanawal', [UserController::class, 'pendaftaranpemeriksaanawal'])->name('pendaftaranpemeriksaanawal');
-        Route::post('pendaftaranpemeriksaanawal', [UserController::class, 'storepemeriksaanawal'])->name('pemeriksaanawal.store');
-
-        // pendaftaran kunjungan ulang
+        Route::post('pendaftaranpemeriksaanawal', [UserController::class, 'storepemeriksaanawal'])->name('pemeriksaanawal_store');
         Route::get('pendaftarankunjunganulang', [UserController::class, 'pendaftarankunjunganulang'])->name('pendaftarankunjunganulang');
-        Route::post('pendaftarankunjunganulang', [UserController::class, 'storekunjunganulang'])->name('kunjunganulang.store');
+        Route::post('pendaftarankunjunganulang', [UserController::class, 'storekunjunganulang'])->name('kunjunganulang_store');
+        Route::get('pendaftaranpersalinan', [UserController::class, 'pendaftaranpersalinan'])->name('pendaftaranpersalinan');
+        Route::post('pendaftaranpersalinan', [UserController::class, 'storepersalinan'])->name('persalinan_store');
+        Route::get('pendaftarankb', [UserController::class, 'pendaftarankb'])->name('pendaftarankb');
+        Route::post('pendaftarankb', [UserController::class, 'storekb'])->name('kb_store');
     });
 });

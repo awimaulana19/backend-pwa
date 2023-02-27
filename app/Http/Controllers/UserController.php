@@ -13,6 +13,10 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
 {
+    public function user()
+    {
+        return view('User.Layouts.app');
+    }
     public function halaman_user()
     {
         return view('User.Home.home');
@@ -74,7 +78,6 @@ class UserController extends Controller
         $kb->save();
 
         Alert::success('Sukses', 'Berhasil Mendaftar Lihat Nomor Antrian Dibawah');
-        return redirect('/registrasi');
     }
 
     // halaman pendaftaran persalinan
@@ -108,7 +111,6 @@ class UserController extends Controller
         $persalinan->save();
 
         Alert::success('Sukses', 'Berhasil Mendaftar Lihat Nomor Antrian Dibawah');
-        return redirect('/registrasi');
     }
 
     // halaman pendaftaran pemeriksaan awal
@@ -142,7 +144,6 @@ class UserController extends Controller
         $pemeriksaanawal->save();
 
         Alert::success('Sukses', 'Berhasil Mendaftar Lihat Nomor Antrian Dibawah');
-        return redirect('/registrasi');
     }
 
     // halaman pendaftaran kunjungan ulang
@@ -176,6 +177,5 @@ class UserController extends Controller
         $kunjunganulang->save();
 
         Alert::success('Sukses', 'Berhasil Mendaftar Lihat Nomor Antrian Dibawah');
-        return redirect('/registrasi');
     }
 }

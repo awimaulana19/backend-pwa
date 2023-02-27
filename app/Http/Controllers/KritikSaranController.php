@@ -48,7 +48,6 @@ class KritikSaranController extends Controller
 
         $kritikSaran->save();
         Alert::success('Sukses', 'Berhasil Mengirim Kritik dan Saran');
-        return redirect()->route('informasi');
     }
 
     /**

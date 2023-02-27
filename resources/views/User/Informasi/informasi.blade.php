@@ -1,7 +1,5 @@
-@extends('User.Layouts.app', ['title' => 'Informasi'])
-
-@section('content')
     <section id="informasi">
+        @include('sweetalert::alert')
         <div class="row">
             <div class="col-12">
                 <p class="title text-center">Bidan Praktek Swasta Dina Bantuk Kecamatan Patampanua Kabupaten Pinrang </p>
@@ -21,7 +19,7 @@
             </div>
 
             <div class="col-12 mt-4">
-                <form action="{{ route('kritiksaran.store') }}" method="POST">
+                <form id="form_kritik">
                     @csrf
                     <input type="text" name="username" hidden value="{{ auth()->user()->username }}">
                     <input type="text" name="email" hidden value="{{ auth()->user()->email }}">
@@ -38,4 +36,34 @@
             </div>
         </div>
     </section>
-@endsection
+
+    <script>
+        $('#form_kritik').submit(function(event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: '{{ route('kritiksaran_store') }}', // Ganti dengan URL yang sesuai untuk menyimpan data ke dalam database
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function(response) {
+                    $.ajax({
+                        type: 'GET',
+                        url: '{{ route('informasi') }}',
+                        success: function(data) {
+                            $('#konten_halaman').html(data);
+                            history.pushState({}, null, url);
+                        },
+                        error: function(data) {
+                            console.log('Error:', data);
+                        }
+                    });
+                    // Jika data berhasil disimpan, arahkan pengguna ke halaman lain
+                    // window.location.href = '/registrasi';
+                },
+                error: function(xhr) {
+                    // Jika terjadi kesalahan, tampilkan pesan kesalahan
+                    console.log(xhr.responseText);
+                }
+            });
+        });
+    </script>
