@@ -13,6 +13,7 @@
             <div class="col-12">
                 <form action="{{ route('kunjunganulang.store') }}" method="POST">
                     @csrf
+                    <input type="text" name="antrian_sekarang" value="{{ $antrian_sekarang }}" hidden>
                     <input type="text" name="user_id" value="{{ auth()->user()->id }}" hidden>
                     <input type="text" name="periksa" value="KunjunganUlang" hidden>
                     <div class="mb-3">

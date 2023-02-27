@@ -126,6 +126,7 @@ class UserController extends Controller
 
     public function storepemeriksaanawal(Request $request)
     {
+        $antrian_sekarang = $request->antrian_sekarang;
         $data = $request->validate([
             'user_id' => 'required',
             'nama' => 'required',
@@ -136,6 +137,7 @@ class UserController extends Controller
         ]);
         $pemeriksaanawal = new Pendaftaran();
         $pemeriksaanawal->fill($data);
+        $pemeriksaanawal->antrian_sekarang = $antrian_sekarang;
 
         $pemeriksaanawal->save();
 
@@ -158,6 +160,7 @@ class UserController extends Controller
 
     public function storekunjunganulang(Request $request)
     {
+        $antrian_sekarang = $request->antrian_sekarang;
         $data = $request->validate([
             'user_id' => 'required',
             'nama' => 'required',
@@ -168,6 +171,7 @@ class UserController extends Controller
         ]);
         $kunjunganulang = new Pendaftaran();
         $kunjunganulang->fill($data);
+        $kunjunganulang->antrian_sekarang = $antrian_sekarang;
 
         $kunjunganulang->save();
 
