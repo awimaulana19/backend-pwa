@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card p-4">
-        <form action="{{ route('periksa_kb') }}" method="POST">
+        <form action="{{ Auth::user()->roles != 'admin' ?route('bidan_periksa_kb') : route('periksa_kb') }}" method="POST">
             @csrf
             <input type="hidden" name="pendaftaran_id" value="{{ $pendaftaran->id }}">
             <input type="hidden" name="antrian" value="{{ $pendaftaran->antrian }}">

@@ -12,19 +12,19 @@
         <ul class="sidebar-menu mt-3">
             <li class="menu-header">Dashboard</li>
             <li class="{{ $title == 'Dashboard Admin' ? 'active' : '' }}">
-                <a class="nav-link" href="/dashboard-admin"><i class="bi bi-bar-chart-fill"></i>
+                <a class="nav-link" href="{{Auth::user()->roles != 'admin' ? 'dashboard-bidan' : 'dashboard-admin' }}"><i class="bi bi-bar-chart-fill"></i>
                     <span>Dashboard</span></a>
             </li>
 
             {{-- data kehamilan --}}
             <li class="menu-header">Data Pemeriksaan Kehamilan</li>
             <li class="{{ $title == 'Pemeriksaan Awal' ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('pemeriksaan-awal-kehamilan.index') }}"><i
+                <a class="nav-link" href="{{Auth::user()->roles != 'admin' ? url('pemeriksaan-awal-kehamilan-bidan') : route('pemeriksaan-awal-kehamilan.index') }}"><i
                         class="bi bi-calendar-plus-fill"></i>
                     <span>Pemeriksaan Awal</span></a>
             </li>
             <li class="{{ $title == 'Kunjungan Ulang' ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('kunjungan-ulang-kehamilan.index') }}"><i
+                <a class="nav-link" href="{{ Auth::user()->roles != 'admin' ? url('kunjungan-ulang-kehamilan-bidan') : route('kunjungan-ulang-kehamilan.index') }}"><i
                         class="bi bi-calendar2-check-fill"></i>
                     <span>Kunjungan Ulang</span></a>
             </li>
@@ -32,21 +32,21 @@
             {{-- data Persalinan --}}
             <li class="menu-header">Data Persalinan</li>
             <li class="{{ $title == 'Data Persalinan' ? 'active' : '' }}">
-                <a class="nav-link" href="/persalinan"><i class="bi bi-person-heart"></i>
+                <a class="nav-link" href="{{Auth::user()->roles != 'admin' ? 'persalinan-bidan' : 'persalinan'}}"><i class="bi bi-person-heart"></i>
                     <span>Data Persalinan</span></a>
             </li>
 
             {{-- data keluarga berencana --}}
             <li class="menu-header">Data Keluarga Berencana</li>
             <li class="{{ $title == 'Keluarga Berencana' ? 'active' : '' }}">
-                <a class="nav-link" href="/kb"><i class="bi bi-people-fill"></i>
+                <a class="nav-link" href="{{Auth::user()->roles != 'admin' ? 'kb-bidan' : 'kb'}}"><i class="bi bi-people-fill"></i>
                     <span>Data KB</span></a>
             </li>
 
             {{-- data riwayat pendaftaran --}}
             <li class="menu-header">Riwayat Pendaftaran</li>
             <li class="{{ $title == 'Riwayat Pendaftaran' ? 'active' : '' }}">
-                <a class="nav-link" href="/pendaftaran"><i class="bi bi-clock-history"></i>
+                <a class="nav-link" href="{{Auth::user()->roles != 'admin' ? 'pendaftaran-bidan' : 'pendaftaran'}}"><i class="bi bi-clock-history"></i>
                     <span>Riwayat Pendaftaran</span></a>
             </li>
 
@@ -63,5 +63,6 @@
                         <span>Data Pasien</span></a>
                 </li>
             </div>
+        </ul>
     </aside>
 </div>

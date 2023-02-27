@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KunjunganUlangKehamilan;
+use App\Models\PemeriksaanAwalKehamilan;
 use App\Models\Persalinan;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
@@ -26,7 +28,9 @@ class UserController extends Controller
         $user_id = auth()->user();
         $riwayat_persalinan = Persalinan::where('user_id', '=', $user_id->id)->get();
         $riwayat_kb = Keluargaberencana::where('user_id', '=', $user_id->id)->get();
-        return view('User.Pendaftaran.riwayat', compact('riwayat_persalinan', 'riwayat_kb'));
+        $pemeriksaanAwalKehamilan = PemeriksaanAwalKehamilan::where('user_id', '=',$user_id->id)->get();
+        $kunjunganUlangKehamilan = KunjunganUlangKehamilan::where('user_id','=',$user_id->id)->get();
+        return view('User.Pendaftaran.riwayat', compact('riwayat_persalinan', 'riwayat_kb','pemeriksaanAwalKehamilan','kunjunganUlangKehamilan'));
     }
     public function profile()
     {
@@ -110,7 +114,14 @@ class UserController extends Controller
     // halaman pendaftaran pemeriksaan awal
     public function pendaftaranpemeriksaanawal()
     {
-        return view('User.pendaftaran.pemeriksaanawal');
+        $pendaftaran = Pendaftaran::get();
+        if ($pendaftaran->isNotEmpty()) {
+            $antrian_sekarang = $pendaftaran[0]->antrian_sekarang;
+            return view('User.pendaftaran.pemeriksaanawal', compact('antrian_sekarang'));
+        }else{
+            $antrian_sekarang = 1;
+            return view('User.pendaftaran.pemeriksaanawal', compact('antrian_sekarang'));
+        }
     }
 
     public function storepemeriksaanawal(Request $request)
@@ -135,7 +146,14 @@ class UserController extends Controller
     // halaman pendaftaran kunjungan ulang
     public function pendaftarankunjunganulang()
     {
-        return view('User.pendaftaran.kunjunganulang');
+        $pendaftaran = Pendaftaran::get();
+        if ($pendaftaran->isNotEmpty()) {
+            $antrian_sekarang = $pendaftaran[0]->antrian_sekarang;
+            return view('User.pendaftaran.kunjunganulang', compact('antrian_sekarang'));
+        }else{
+            $antrian_sekarang = 1;
+            return view('User.pendaftaran.kunjunganulang', compact('antrian_sekarang'));
+        }
     }
 
     public function storekunjunganulang(Request $request)

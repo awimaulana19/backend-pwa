@@ -32,7 +32,7 @@ Route::get('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::namespace('App\Http\Controllers')->group(function () {
     // route dashboard admin
-    Route::group(['middleware' => ['auth', 'cekLevel:admin']], function () {
+    Route::group(['middleware' => ['auth', 'OnlyAdmin']], function () {
         // dashboard
         Route::get('dashboard-admin', [LoginController::class, 'dashboard_admin'])->name('dashboard-admin');
         Route::get('/persalinan', [PersalinanController::class, 'index']);
@@ -76,41 +76,41 @@ Route::namespace('App\Http\Controllers')->group(function () {
     });
 
     // route dashboard bidan
-    Route::group(['middleware' => ['auth', 'cekLevel:bidan']], function () {
+    Route::group(['middleware' => ['auth', 'OnlyBidan']], function () {
         // dashboard
-        Route::get('dashboard-admin', [LoginController::class, 'dashboard_admin'])->name('dashboard-admin');
-        Route::get('/persalinan', [PersalinanController::class, 'index']);
-        Route::get('/persalinan/show/{id}', [PersalinanController::class, 'show']);
-        Route::get('/persalinan/{id}', [PersalinanController::class, 'hapus']);
-        Route::get('/persalinan/selesai/{id}', [PersalinanController::class, 'selesai']);
-        Route::get('/kb', [KeluargaberencanaController::class, 'index']);
-        Route::get('/kb/show/{id}', [KeluargaberencanaController::class, 'show']);
-        Route::get('/kb/{id}', [KeluargaberencanaController::class, 'hapus']);
-        Route::get('/kb/selesai/{id}', [KeluargaberencanaController::class, 'selesai']);
+        Route::get('dashboard-bidan', [LoginController::class, 'dashboard_bidan'])->name('dashboard-bidan');
 
-        Route::get('/pendaftaran', [PendaftaranController::class, 'index']);
-        Route::get('/pendaftaran/periksa/{id}', [PendaftaranController::class, 'periksa']);
-        Route::post('periksa-persalinan', [PendaftaranController::class, 'persalinan_action'])->name('periksa_persalinan');
-        Route::post('periksa-kb', [PendaftaranController::class, 'kb_action'])->name('periksa_kb');
-        Route::get('/pendaftaran/{id}', [PendaftaranController::class, 'hapus']);
-        Route::get('/pendaftaran-reset', [PendaftaranController::class, 'reset']);
+        Route::get('/persalinan-bidan', [PersalinanController::class, 'bidan_index']);
+        Route::get('/persalinan-bidan/show/{id}', [PersalinanController::class, 'bidan_show']);
+        Route::get('/persalinan-bidan/{id}', [PersalinanController::class, 'bidan_hapus']);
+        // Route::get('/persalinan-bidan/selesai/{id}', [PersalinanController::class, 'selesai']);
 
-        Route::post('periksa-pemeriksaan-awal-kehamilan', [PendaftaranController::class, 'pemeriksaan_awal_kehamilan']);
-        Route::post('periksa-kunjungan-ulang-kehamilan', [PendaftaranController::class, 'kunjungan_ulang_kehamilan']);
+        Route::get('/kb-bidan', [KeluargaberencanaController::class, 'bidan_index']);
+        Route::get('/kb-bidan/show/{id}', [KeluargaberencanaController::class, 'bidan_show']);
+        Route::get('/kb-bidan/{id}', [KeluargaberencanaController::class, 'bidan_hapus']);
+        Route::get('/kb-bidan/selesai/{id}', [KeluargaberencanaController::class, 'bidan_selesai']);
 
-        Route::get('/persalinan', [PersalinanController::class, 'index']);
-        Route::get('/persalinan/show/{id}', [PersalinanController::class, 'show']);
-        Route::get('/persalinan/{id}', [PersalinanController::class, 'hapus']);
-        Route::get('/kb', [KeluargaberencanaController::class, 'index']);
-        Route::get('/kb/show/{id}', [KeluargaberencanaController::class, 'show']);
-        Route::get('/kb/{id}', [KeluargaberencanaController::class, 'hapus']);
+        Route::get('/pendaftaran-bidan', [PendaftaranController::class, 'bidan_index']);
+        Route::get('/pendaftaran-bidan/periksa/{id}', [PendaftaranController::class, 'bidan_periksa']);
+        Route::post('periksa-persalinan-bidan', [PendaftaranController::class, 'bidan_persalinan_action'])->name('bidan_periksa_persalinan');
+        Route::post('periksa-kb-bidan', [PendaftaranController::class, 'bidan_kb_action'])->name('bidan_periksa_kb');
+        Route::get('/pendaftaran-bidan/{id}', [PendaftaranController::class, 'bidan_hapus']);
+        Route::get('/pendaftaran-bidan-reset', [PendaftaranController::class, 'bidan_reset']);
 
-        Route::resource('pemeriksaan-awal-kehamilan', PemeriksaanAwalKehamilanController::class);
-        Route::resource('kunjungan-ulang-kehamilan', KunjunganUlangKehamilanController::class);
+        Route::post('bidan-periksa-pemeriksaan-awal-kehamilan', [PendaftaranController::class, 'bidan_pemeriksaan_awal_kehamilan']);
+        Route::post('bidan-periksa-kunjungan-ulang-kehamilan', [PendaftaranController::class, 'bidan_kunjungan_ulang_kehamilan']);
+
+        Route::get('pemeriksaan-awal-kehamilan-bidan',[ PemeriksaanAwalKehamilanController::class,'bidan_index']);
+        Route::get('pemeriksaan-awal-kehamilan-bidan.show/{id}',[ PemeriksaanAwalKehamilanController::class,'bidan_show']);
+        Route::get('pemeriksaan-awal-kehamilan-bidan.destroy/{id}',[ PemeriksaanAwalKehamilanController::class,'bidan_destroy']);
+
+        Route::get('kunjungan-ulang-kehamilan-bidan',[KunjunganUlangKehamilanController::class,'bidan_index']);
+        Route::get('kunjungan-ulang-kehamilan-bidan.show/{id}',[KunjunganUlangKehamilanController::class,'bidan_show']);
+        Route::get('kunjungan-ulang-kehamilan-bidan.destroy/{id}',[KunjunganUlangKehamilanController::class,'bidan_destroy']);
     });
 
     // pasien
-    Route::group(['middleware' => ['auth', 'cekLevel:pasien']], function () {
+    Route::group(['middleware' => ['auth', 'OnlyPasien']], function () {
         Route::get('home', [UserController::class, 'halaman_user'])->name('home');
         Route::get('registrasi', [UserController::class, 'registrasi'])->name('registrasi');
         Route::get('riwayat', [UserController::class, 'riwayat'])->name('riwayat');

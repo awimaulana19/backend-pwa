@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-end">
-            <a href="{{ url('/kb') }}" class="btn btn-danger">Kembali</a>
+            <a href="{{ Auth::user()->roles != 'admin' ? url('kb-bidan'): url('/kb') }}" class="btn btn-danger">Kembali</a>
         </div>
     </div>
 </div>

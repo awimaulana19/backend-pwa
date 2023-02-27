@@ -34,10 +34,10 @@
                         <td>{{ $item->baru }}</td>
                         <td>{{ $item->lama }}</td>
                         <td class="text-center">
-                            <a class="btn btn-info py-2 me-1" href="{{ url('kb/show/' . $item->id) }}">
+                            <a class="btn btn-info py-2 me-1" href="{{ Auth::user()->roles != 'admin' ? url('kb-bidan/show/'.$item->id) : url('kb/show/' . $item->id) }}">
                                 <i class="fs-6 bi bi-eye-fill"></i>
                             </a>
-                            <a class="btn btn-danger py-2" href="{{ url('kb/' . $item->id) }}">
+                            <a class="btn btn-danger py-2" href="{{ Auth::user()->roles != 'admin' ? url('kb-bidan/'.$item->id):url('kb/' . $item->id) }}">
                                 <i class="fs-6 bi bi-trash"></i>
                             </a>
                         </td>

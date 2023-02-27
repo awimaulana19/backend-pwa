@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class cekLevel
+class OnlyPasien
 {
     /**
      * Handle an incoming request.
@@ -14,11 +15,11 @@ class cekLevel
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, ...$levels)
+    public function handle(Request $request, Closure $next)
     {
-        if (in_array($request->user()->roles, $levels)) {
-            return $next($request);
+        if(Auth::user()->roles != 'pasien'){
+            return redirect('/');
         }
-        return redirect('/');
+        return $next($request);
     }
 }

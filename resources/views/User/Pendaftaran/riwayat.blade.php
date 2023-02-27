@@ -62,6 +62,7 @@
                     <hr>
                 </div>
             @endif
+
             @if ($riwayat_kb->isNotEmpty())
             <div class="col-12">
                 <p class="headtitle">Pendaftaran KB</p>
@@ -100,6 +101,89 @@
                             </div>
                             <div class="mb-2">
                                 <label for="nama" class="form-label">TD/BB : {{ $item->td_bb }}</label>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Keterangan : {{ $item->keterangan }}</label>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                <hr>
+            </div>
+            @endif
+
+            @if ($pemeriksaanAwalKehamilan->isNotEmpty())
+            <div class="col-12">
+                <p class="headtitle">Pendaftaran Pemeriksaan Awal Kehamilan</p>
+                @foreach ($pemeriksaanAwalKehamilan as $item)
+                    <p class="headsubtitle mb-2 mt-1">Pendaftaran {{ $loop->iteration }}</p>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Tanggal : {{ $item->tanggal }}</label>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Nama : {{ $item->nama }}</label>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Umur : {{ $item->umur }}</label>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Alamat : {{ $item->alamat }}</label>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Paritas : {{ $item->paritas }}</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Anak Perkecil : {{ $item->anak_perkecil }}</label>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">TD/BB : {{ $item->td_bb }}</label>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Hasil Pemeriksaan : {{ $item->hasil_pemeriksaan }}</label>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Keterangan : {{ $item->keterangan }}</label>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                <hr>
+            </div>
+            @endif
+
+            @if ($kunjunganUlangKehamilan->isNotEmpty())
+            <div class="col-12">
+                <p class="headtitle">Pendaftaran Kunjungan Ulang Kehamilan</p>
+                @foreach ($kunjunganUlangKehamilan as $item)
+                    <p class="headsubtitle mb-2 mt-1">Pendaftaran {{ $loop->iteration }}</p>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Tanggal : {{ $item->tanggal }}</label>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Nama : {{ $item->nama }}</label>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Umur : {{ $item->umur }}</label>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Alamat : {{ $item->alamat }}</label>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Paritas : {{ $item->paritas }}</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">TD/BB : {{ $item->td_bb }}</label>
+                            </div>
+                            <div class="mb-2">
+                                <label for="nama" class="form-label">Umur Kehamilan : {{ $item->umur_kelahiran }}</label>
                             </div>
                             <div class="mb-2">
                                 <label for="nama" class="form-label">Keterangan : {{ $item->keterangan }}</label>

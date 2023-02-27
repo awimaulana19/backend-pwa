@@ -4,7 +4,7 @@
 <div class="card p-4">
     <div class="d-flex">
         <div class="me-auto mb-3">
-            <a class="btn btn-danger py-2" href="{{ url('pendaftaran-reset') }}">Reset Antrian
+            <a class="btn btn-danger py-2" href="{{Auth::user()->roles != 'admin' ? url('pendaftaran-bidan-reset') : url('pendaftaran-reset') }}">Reset Antrian
             </a>
         </div>
         <div class="ms-auto mb-3">
@@ -40,10 +40,10 @@
                         <td>{{ $item->alamat }}</td>
                         <td>{{ $item->periksa }}</td>
                         <td class="text-center">
-                            <a class="btn btn-success py-2 me-1" href="{{ url('pendaftaran/periksa/' . $item->id) }}">
+                            <a class="btn btn-success py-2 me-1" href="{{ Auth::user()->roles != 'admin' ? url('pendaftaran-bidan/periksa/' . $item->id) : url('pendaftaran/periksa/' . $item->id) }}">
                                 <i class="fs-6 bi bi-eye-fill"></i>
                             </a>
-                            <a class="btn btn-danger py-2" href="{{ url('pendaftaran/' . $item->id) }}">
+                            <a class="btn btn-danger py-2" href="{{ Auth::user()->roles != 'admin' ? url('pendaftaran-bidan/' . $item->id) : url('pendaftaran/' . $item->id) }}">
                                 <i class="fs-6 bi bi-trash"></i>
                             </a>
                         </td>

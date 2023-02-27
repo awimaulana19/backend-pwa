@@ -35,15 +35,19 @@
                             <td>{{ $item->umur }}</td>
                             <td>{{ $item->alamat }}</td>
                             <td class="text-center d-flex align-items-center">
-                                <form action="{{route('kunjungan-ulang-kehamilan.show', $item->id)}}" method="get">
+                                <form action="{{Auth::user()->roles != 'admin' ? url('kunjungan-ulang-kehamilan-bidan.show/'.$item->id) : route('kunjungan-ulang-kehamilan.show', $item->id)}}" method="get">
                                     @csrf
                                     <button class="btn btn-info py-2 me-1" type="submit">
                                         <i class="fs-6 bi bi-eye-fill"></i>
                                     </button>
                                 </form>
-                                <form action = "{{ route('kunjungan-ulang-kehamilan.destroy', $item->id) }}" method="post">
+                                <form action = "{{ Auth::user()->roles != 'admin' ? url('kunjungan-ulang-kehamilan-bidan.destroy/'.$item->id): route('kunjungan-ulang-kehamilan.destroy', $item->id) }}" method="get">
                                     @csrf
+                                    @if (Auth::user()->roles != 'admin')
+                                    @method('get')
+                                    @else
                                     @method('delete')
+                                    @endif
                                     <button type="submit" class="btn btn-danger py-2">
                                         <i class="fs-6 bi bi-trash"></i>
                                     </button>

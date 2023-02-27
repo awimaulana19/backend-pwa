@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-end">
-            <a href="{{ route('kunjungan-ulang-kehamilan.index') }}" class="btn btn-danger">Kembali</a>
+            <a href="{{ Auth::user()->roles != 'admin' ? url('kunjungan-ulang-kehamilan-bidan') : route('kunjungan-ulang-kehamilan.index') }}" class="btn btn-danger">Kembali</a>
         </div>
     </div>
 </div>

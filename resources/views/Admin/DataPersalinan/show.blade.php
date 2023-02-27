@@ -55,7 +55,7 @@
                 <input type="text" disabled class="form-control" id="nama" value="{{ $persalinan->keterangan }}">
             </div>
             <div class="d-flex justify-content-end">
-                <a href="{{ url('/persalinan') }}" class="btn btn-danger">Kembali</a>
+                <a href="{{ Auth::user()->roles != 'admin' ? url('persalinan-bidan'): url('/persalinan') }}" class="btn btn-danger">Kembali</a>
             </div>
         </div>
     </div>

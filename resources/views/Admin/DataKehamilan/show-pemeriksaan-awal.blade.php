@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="d-flex justify-content-end">
-            <a href="{{ route('pemeriksaan-awal-kehamilan.index') }}" class="btn btn-danger">Kembali</a>
+            <a href="{{ Auth::user()->roles != 'admin' ? url('pemeriksaan-awal-kehamilan-bidan') : route('pemeriksaan-awal-kehamilan.index') }}" class="btn btn-danger">Kembali</a>
         </div>
     </div>
 </div>

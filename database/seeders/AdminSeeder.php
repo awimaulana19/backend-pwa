@@ -22,7 +22,14 @@ class AdminSeeder extends Seeder
             'password' => bcrypt('admin'),
             'remember_token' => Str::random(60)
         ]);
-        
+
+        User::create([
+            'roles' => 'bidan',
+            'username' => 'muis',
+            'password' => bcrypt('123'),
+            'remember_token' => Str::random(60)
+        ]);
+
         User::create([
             'roles' => 'pasien',
             'username' => 'pasien',

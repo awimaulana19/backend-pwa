@@ -24,6 +24,10 @@ class LoginController extends Controller
     {
         return view('Admin.Dashboard.dashboard');
     }
+    public function dashboard_bidan()
+    {
+        return view('Admin.Dashboard.dashboard');
+    }
 
 
     public function register_action(Request $request)
@@ -52,13 +56,14 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
-            if (auth()->user()->roles == 'admin' || auth()->user()->roles == 'bidan') {
+            if (Auth::user()->roles == 'admin') {
                 return redirect()->route('dashboard-admin');
-                return view('Admin.Dashboard.dashboard')->with('users', $request);
-            } else {
+            } elseif(Auth::user()->roles == 'bidan'){
+                return redirect()->route('dashboard-bidan');
+            }
+            else {
                 if (auth()->user()->roles == 'pasien' && auth()->user()->is_verification == 1) {
                     return redirect()->route('home');
-                    return view('User.Home.home')->with('users', $request);
                 } else {
                     return back()->with('wait', 'akun anda belum di verifikasi oleh admin');
                 }

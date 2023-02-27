@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card p-4">
-        <form action="{{ url('periksa-kunjungan-ulang-kehamilan') }}" method="POST">
+        <form action="{{ Auth::user()->roles != 'admin' ? url('bidan-periksa-kunjungan-ulang-kehamilan') : url('periksa-kunjungan-ulang-kehamilan') }}" method="POST">
             @csrf
             <input type="hidden" name="pendaftaran_id" value="{{ $pendaftaran->id }}">
             <input type="hidden" name="antrian" value="{{ $pendaftaran->antrian }}">
