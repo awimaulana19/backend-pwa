@@ -100,20 +100,20 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::post('bidan-periksa-pemeriksaan-awal-kehamilan', [PendaftaranController::class, 'bidan_pemeriksaan_awal_kehamilan']);
         Route::post('bidan-periksa-kunjungan-ulang-kehamilan', [PendaftaranController::class, 'bidan_kunjungan_ulang_kehamilan']);
 
-        Route::get('pemeriksaan-awal-kehamilan-bidan',[ PemeriksaanAwalKehamilanController::class,'bidan_index']);
-        Route::get('pemeriksaan-awal-kehamilan-bidan.show/{id}',[ PemeriksaanAwalKehamilanController::class,'bidan_show']);
-        Route::get('pemeriksaan-awal-kehamilan-bidan.destroy/{id}',[ PemeriksaanAwalKehamilanController::class,'bidan_destroy']);
+        Route::get('pemeriksaan-awal-kehamilan-bidan', [PemeriksaanAwalKehamilanController::class, 'bidan_index']);
+        Route::get('pemeriksaan-awal-kehamilan-bidan.show/{id}', [PemeriksaanAwalKehamilanController::class, 'bidan_show']);
+        Route::get('pemeriksaan-awal-kehamilan-bidan.destroy/{id}', [PemeriksaanAwalKehamilanController::class, 'bidan_destroy']);
 
-        Route::get('kunjungan-ulang-kehamilan-bidan',[KunjunganUlangKehamilanController::class,'bidan_index']);
-        Route::get('kunjungan-ulang-kehamilan-bidan.show/{id}',[KunjunganUlangKehamilanController::class,'bidan_show']);
-        Route::get('kunjungan-ulang-kehamilan-bidan.destroy/{id}',[KunjunganUlangKehamilanController::class,'bidan_destroy']);
+        Route::get('kunjungan-ulang-kehamilan-bidan', [KunjunganUlangKehamilanController::class, 'bidan_index']);
+        Route::get('kunjungan-ulang-kehamilan-bidan.show/{id}', [KunjunganUlangKehamilanController::class, 'bidan_show']);
+        Route::get('kunjungan-ulang-kehamilan-bidan.destroy/{id}', [KunjunganUlangKehamilanController::class, 'bidan_destroy']);
     });
 
     // pasien
     Route::group(['middleware' => ['auth', 'OnlyPasien']], function () {
         Route::get('user', [UserController::class, 'user'])->name('user');
     });
-    
+
     // pasien
     Route::group(['middleware' => ['auth', 'ajax']], function () {
         Route::get('home', [UserController::class, 'halaman_user'])->name('home');

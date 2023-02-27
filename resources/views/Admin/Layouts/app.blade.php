@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <link rel="shortcut icon" href="{{ asset('assets/img/logo.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/img/logopwa.png') }}" type="image/x-icon">
     <title>{{ $title }}</title>
 
     <!-- General CSS Files -->
@@ -22,6 +22,7 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
+    @laravelPWA
 </head>
 
 <body>

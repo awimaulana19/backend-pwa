@@ -5,12 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Halaman Login</title>
-    <link rel="shortcut icon" href="{{ asset('assets/img/logo.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/img/logopwa.png') }}" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
     <!-- icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    @laravelPWA
 </head>
 
 <body>
@@ -43,13 +44,13 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username / Nama Lengkap</label>
-                                <input type="text" name="username" id="username" class=" py-md-3 py-2 ps-md-4 ps-3 form-control"
-                                    placeholder="Masukkan Username">
+                                <input type="text" name="username" id="username"
+                                    class=" py-md-3 py-2 ps-md-4 ps-3 form-control" placeholder="Masukkan Username">
                             </div>
                             <label for="pass" class="form-label">Password</label>
                             <div class="input-group mb-4">
-                                <input type="password" name="password" id="pass" class=" py-md-3 py-2 ps-md-4 ps-3 form-control"
-                                    placeholder="Masukkan Password">
+                                <input type="password" name="password" id="pass"
+                                    class=" py-md-3 py-2 ps-md-4 ps-3 form-control" placeholder="Masukkan Password">
                                 <!-- kita pasang onclick untuk merubah icon buka/tutup mata setiap diklik  -->
                                 <span id="mybutton" onclick="lihat()" class="input-group-text" style="cursor:pointer;">
                                     <i class="bi bi-eye-fill"></i>

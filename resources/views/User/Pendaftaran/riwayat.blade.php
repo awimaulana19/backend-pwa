@@ -1,8 +1,8 @@
 <section id="riwayat">
     <div class="row">
         <div class="col-12">
-            <p class="headtitle">Halaman Registrasi</p>
-            <p class="headsubtitle">Pendaftaran data Pasien </p>
+            <p class="headtitle">Halaman Riwayat</p>
+            <p class="headsubtitle">Riwayat Pendaftaran data Pasien</p>
             <img src="{{ asset('assets/img/riwayat.png') }}" alt="" width="100%">
         </div>
     </div>
