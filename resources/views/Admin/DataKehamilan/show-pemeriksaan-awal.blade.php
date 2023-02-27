@@ -1,4 +1,4 @@
-@extends('Admin.Layouts.app', ['title' => 'Pemeriksaan Awal Kehamilan'])
+@extends('Admin.Layouts.app', ['title' => 'Pemeriksaan Awal'])
 
 @section('content')
 <div class="card p-4">

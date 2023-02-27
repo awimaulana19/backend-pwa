@@ -23,13 +23,13 @@ class PemeriksaanAwalKehamilanController extends Controller
 
     public function show($id)
     {
-        $periksa = PemeriksaanAwalKehamilan::first();
+        $periksa = PemeriksaanAwalKehamilan::Where('id', $id)->first();
         return view('Admin.DataKehamilan.show-pemeriksaan-awal',compact('periksa'));
     }
 
     public function bidan_show($id)
     {
-        $periksa = PemeriksaanAwalKehamilan::first();
+        $periksa = PemeriksaanAwalKehamilan::Where('id', $id)->first();
         return view('Admin.DataKehamilan.show-pemeriksaan-awal',compact('periksa'));
     }
 
