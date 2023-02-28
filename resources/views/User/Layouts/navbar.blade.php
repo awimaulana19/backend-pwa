@@ -36,7 +36,7 @@
             <div class="col-md-6 mx-auto">
                 <div class="navbar">
                     <div class="isi-menu d-flex mx-auto">
-                         <a href="{{ route('home') }}" id="mobile_home" class="text-center nav-item">
+                         <a href="{{ route('home') }}" id="mobile_home" class="text-center nav-item active">
                             <i class="bi bi-house-door-fill"></i>
                             <p class="mb-0" href="#">Home</p>
                         </a>

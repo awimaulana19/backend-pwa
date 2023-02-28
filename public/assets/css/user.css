@@ -237,6 +237,13 @@ label {
     .navbar .nav-item {
         margin: 0px 10px;
     }
+    .navbar .nav-item:hover {
+        transition: none;
+        color: #9aa4ad;
+    }
+    .navbar .nav-item.active {
+        color: #55abf8;
+    }
     .navbar i {
         font-size: 20px;
     }
