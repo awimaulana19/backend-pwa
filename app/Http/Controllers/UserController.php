@@ -8,6 +8,7 @@ use App\Models\Persalinan;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use App\Models\Keluargaberencana;
+use App\Models\KritikSaran;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -19,7 +20,8 @@ class UserController extends Controller
     }
     public function halaman_user()
     {
-        return view('User.Home.home');
+        $testimoni = KritikSaran::all();
+        return view('User.Home.home', compact('testimoni'));
     }
     public function registrasi()
     {
@@ -32,9 +34,9 @@ class UserController extends Controller
         $user_id = auth()->user();
         $riwayat_persalinan = Persalinan::where('user_id', '=', $user_id->id)->get();
         $riwayat_kb = Keluargaberencana::where('user_id', '=', $user_id->id)->get();
-        $pemeriksaanAwalKehamilan = PemeriksaanAwalKehamilan::where('user_id', '=',$user_id->id)->get();
-        $kunjunganUlangKehamilan = KunjunganUlangKehamilan::where('user_id','=',$user_id->id)->get();
-        return view('User.Pendaftaran.riwayat', compact('riwayat_persalinan', 'riwayat_kb','pemeriksaanAwalKehamilan','kunjunganUlangKehamilan'));
+        $pemeriksaanAwalKehamilan = PemeriksaanAwalKehamilan::where('user_id', '=', $user_id->id)->get();
+        $kunjunganUlangKehamilan = KunjunganUlangKehamilan::where('user_id', '=', $user_id->id)->get();
+        return view('User.Pendaftaran.riwayat', compact('riwayat_persalinan', 'riwayat_kb', 'pemeriksaanAwalKehamilan', 'kunjunganUlangKehamilan'));
     }
     public function profile()
     {
@@ -54,7 +56,7 @@ class UserController extends Controller
         if ($pendaftaran->isNotEmpty()) {
             $antrian_sekarang = $pendaftaran[0]->antrian_sekarang;
             return view('User.pendaftaran.kb', compact('antrian_sekarang'));
-        }else{
+        } else {
             $antrian_sekarang = 1;
             return view('User.pendaftaran.kb', compact('antrian_sekarang'));
         }
@@ -87,7 +89,7 @@ class UserController extends Controller
         if ($pendaftaran->isNotEmpty()) {
             $antrian_sekarang = $pendaftaran[0]->antrian_sekarang;
             return view('User.pendaftaran.persalinan', compact('antrian_sekarang'));
-        }else{
+        } else {
             $antrian_sekarang = 1;
             return view('User.pendaftaran.persalinan', compact('antrian_sekarang'));
         }
@@ -120,7 +122,7 @@ class UserController extends Controller
         if ($pendaftaran->isNotEmpty()) {
             $antrian_sekarang = $pendaftaran[0]->antrian_sekarang;
             return view('User.pendaftaran.pemeriksaanawal', compact('antrian_sekarang'));
-        }else{
+        } else {
             $antrian_sekarang = 1;
             return view('User.pendaftaran.pemeriksaanawal', compact('antrian_sekarang'));
         }
@@ -153,7 +155,7 @@ class UserController extends Controller
         if ($pendaftaran->isNotEmpty()) {
             $antrian_sekarang = $pendaftaran[0]->antrian_sekarang;
             return view('User.pendaftaran.kunjunganulang', compact('antrian_sekarang'));
-        }else{
+        } else {
             $antrian_sekarang = 1;
             return view('User.pendaftaran.kunjunganulang', compact('antrian_sekarang'));
         }

@@ -73,6 +73,9 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::get('/databidan/create', [DataPenggunaController::class, 'createbidan'])->name('databidan.create');
         Route::post('/databidan', [DataPenggunaController::class, 'tambahDataBidan'])->name('databidan.store');
         Route::get('/databidan/{id}', [DataPenggunaController::class, 'hapusDataBidan']);
+
+        Route::get('Kritik-Saran', [KritikSaranController::class, 'index']);
+        Route::get('Kritik-Saran/destroy/{id}', [KritikSaranController::class, 'destroy']);
     });
 
     // route dashboard bidan
@@ -107,6 +110,9 @@ Route::namespace('App\Http\Controllers')->group(function () {
         Route::get('kunjungan-ulang-kehamilan-bidan', [KunjunganUlangKehamilanController::class, 'bidan_index']);
         Route::get('kunjungan-ulang-kehamilan-bidan.show/{id}', [KunjunganUlangKehamilanController::class, 'bidan_show']);
         Route::get('kunjungan-ulang-kehamilan-bidan.destroy/{id}', [KunjunganUlangKehamilanController::class, 'bidan_destroy']);
+
+        Route::get('Kritik-Saran-Bidan', [KritikSaranController::class, 'bidan_index']);
+        Route::get('Kritik-Saran-Bidan/destroy/{id}', [KritikSaranController::class, 'bidan_destroy']);
     });
 
     // pasien

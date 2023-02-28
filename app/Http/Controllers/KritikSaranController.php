@@ -15,25 +15,28 @@ class KritikSaranController extends Controller
      */
     public function index()
     {
-        //
+        $kritikSaran = KritikSaran::all();
+        return view('Admin.KritikSaran.index', compact('kritikSaran'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function index_bidan()
     {
-        //
+        $kritikSaran = KritikSaran::all();
+        return view('Admin.KritikSaran.index', compact('kritikSaran'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    public function destroy($id)
+    {
+        $kritikSaran = KritikSaran::Where('id', $id)->first();
+        $kritikSaran->delete();
+        Alert::success('Sukses', 'Data Kritik dan Saran dihapus');
+        return redirect('/Kritik-Saran');
+    }
+    public function destroy_bidan($id)
+    {
+        $kritikSaran = KritikSaran::Where('id', $id)->first();
+        $kritikSaran->delete();
+        Alert::success('Sukses', 'Data Kritik dan Saran dihapus');
+        return redirect('/Kritik-Saran-bidan');
+    }
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -48,50 +51,5 @@ class KritikSaranController extends Controller
 
         $kritikSaran->save();
         Alert::success('Sukses', 'Berhasil Mengirim Kritik dan Saran');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\KritikSaran  $kritikSaran
-     * @return \Illuminate\Http\Response
-     */
-    public function show(KritikSaran $kritikSaran)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\KritikSaran  $kritikSaran
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(KritikSaran $kritikSaran)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\KritikSaran  $kritikSaran
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, KritikSaran $kritikSaran)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\KritikSaran  $kritikSaran
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(KritikSaran $kritikSaran)
-    {
-        //
     }
 }

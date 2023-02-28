@@ -216,6 +216,21 @@ label {
     font-size: 14px;
 }
 
+.carousel-control-next-icon {
+    background-color: #55abf8;
+    border-radius: 50%;
+    padding: 1px 14px;
+    margin-left: 24px;
+    width: 12px;
+}
+.carousel-control-prev-icon {
+    background-color: #55abf8;
+    border-radius: 50%;
+    padding: 1px 14px;
+    margin-right: 24px;
+    width: 12px;
+}
+
 @media (max-width: 575.98px) {
     .container .cards {
         background: #ffffff;
@@ -307,5 +322,19 @@ label {
     #daftar .btn,
     #registrasi .btn {
         font-size: 12px;
+    }
+    .carousel-control-next-icon {
+        background-color: #55abf8;
+        border-radius: 50%;
+        padding: 0px 14px;
+        margin-left: 20px;
+        width: 8px;
+    }
+    .carousel-control-prev-icon {
+        background-color: #55abf8;
+        border-radius: 50%;
+        padding: 0px 14px;
+        margin-right: 20px;
+        width: 8px;
     }
 }
