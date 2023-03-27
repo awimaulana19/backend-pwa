@@ -57,7 +57,7 @@
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner px-3 pb-1">
                 @foreach ($testimoni as $item)
-                    <div class="carousel-item active">
+                    <div class="carousel-item {{ $item->id == 1 ? 'active' : '' }}">
                         <div class="col-12 mt-2">
                             <div class="card">
                                 <div class="d-flex">
