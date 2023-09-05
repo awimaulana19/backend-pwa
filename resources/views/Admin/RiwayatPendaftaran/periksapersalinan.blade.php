@@ -42,7 +42,7 @@
                     <div class="mb-3">
                         <label for="bb_pb" class="form-label">PB</label>
                         <input type="text" id="bb_pb" class="form-control" name="pb"
-                            placeholder="Masukkan BP Anda">
+                            placeholder="Masukkan PB Anda">
                     </div>
                     <div class="mb-3">
                         <label for="paritas" class="form-label">Paritas</label>
