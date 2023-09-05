@@ -23,7 +23,8 @@ return new class extends Migration
             $table->date('ttl');
             $table->string('pukul');
             $table->string('jk');
-            $table->string('bb_pb');
+            $table->string('bb');
+            $table->string('pb');
             $table->string('paritas');
             $table->string('pekerjaan');
             $table->string('alamat');

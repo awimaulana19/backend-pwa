@@ -97,7 +97,8 @@ class PendaftaranController extends Controller
         $persalinan->ttl = $request->ttl;
         $persalinan->pukul = $request->pukul;
         $persalinan->jk = $request->jk;
-        $persalinan->bb_pb = $request->bb_pb;
+        $persalinan->bb = $request->bb;
+        $persalinan->pb = $request->pb;
         $persalinan->paritas = $request->paritas;
         $persalinan->pekerjaan = $request->pekerjaan;
         $persalinan->alamat = $request->alamat;
@@ -126,7 +127,8 @@ class PendaftaranController extends Controller
         $persalinan->ttl = $request->ttl;
         $persalinan->pukul = $request->pukul;
         $persalinan->jk = $request->jk;
-        $persalinan->bb_pb = $request->bb_pb;
+        $persalinan->bb = $request->bb;
+        $persalinan->pb = $request->pb;
         $persalinan->paritas = $request->paritas;
         $persalinan->pekerjaan = $request->pekerjaan;
         $persalinan->alamat = $request->alamat;
@@ -156,7 +158,8 @@ class PendaftaranController extends Controller
         $kb->umur = $request->umur;
         $kb->alamat = $request->alamat;
         $kb->jumlah_anak = $request->jumlah_anak;
-        $kb->td_bb = $request->td_bb;
+        $kb->td = $request->td;
+        $kb->bb = $request->bb;
         $kb->tanggal_kembali = $request->tanggal_kembali;
         $kb->metode_kb = $request->metode_kb;
         $kb->keterangan = $request->keterangan;
@@ -184,7 +187,8 @@ class PendaftaranController extends Controller
         $kb->umur = $request->umur;
         $kb->alamat = $request->alamat;
         $kb->jumlah_anak = $request->jumlah_anak;
-        $kb->td_bb = $request->td_bb;
+        $kb->td = $request->td;
+        $kb->bb = $request->bb;
         $kb->tanggal_kembali = $request->tanggal_kembali;
         $kb->metode_kb = $request->metode_kb;
         $kb->keterangan = $request->keterangan;
@@ -209,7 +213,8 @@ class PendaftaranController extends Controller
             'umur' => $request->umur,
             'paritas' => $request->paritas,
             'anak_perkecil' => $request->anak_perkecil,
-            'td_bb' => $request->td_bb,
+            'td' => $request->td,
+            'bb' => $request->bb,
             'hasil_pemeriksaan' => $request->hasil_pemeriksaan,
             'keterangan' => $request->keterangan,
             'alamat' => $request->alamat,
@@ -233,7 +238,8 @@ class PendaftaranController extends Controller
             'umur' => $request->umur,
             'paritas' => $request->paritas,
             'anak_perkecil' => $request->anak_perkecil,
-            'td_bb' => $request->td_bb,
+            'td' => $request->td,
+            'bb' => $request->bb,
             'hasil_pemeriksaan' => $request->hasil_pemeriksaan,
             'keterangan' => $request->keterangan,
             'alamat' => $request->alamat,
@@ -258,7 +264,8 @@ class PendaftaranController extends Controller
             'umur' => $request->umur,
             'paritas' => $request->paritas,
             'tanggal' => $request->tanggal,
-            'td_bb' => $request->td_bb,
+            'td' => $request->td,
+            'bb' => $request->bb,
             'umur_kelahiran' => $request->umur_kelahiran,
             'keterangan' => $request->keterangan,
             'alamat' => $request->alamat,
@@ -281,7 +288,8 @@ class PendaftaranController extends Controller
             'umur' => $request->umur,
             'paritas' => $request->paritas,
             'tanggal' => $request->tanggal,
-            'td_bb' => $request->td_bb,
+            'td' => $request->td,
+            'bb' => $request->bb,
             'umur_kelahiran' => $request->umur_kelahiran,
             'keterangan' => $request->keterangan,
             'alamat' => $request->alamat,

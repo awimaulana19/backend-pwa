@@ -43,8 +43,12 @@
                 <input type="text" disabled class="form-control" id="nama" value="{{ $kb->tanggal_kembali }}">
             </div>
             <div class="mb-3">
-                <label for="nama" class="form-label">TD/BB</label>
-                <input type="text" disabled class="form-control" id="nama" value="{{ $kb->td_bb }}">
+                <label for="nama" class="form-label">TD</label>
+                <input type="text" disabled class="form-control" id="nama" value="{{ $kb->td }}">
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">BB</label>
+                <input type="text" disabled class="form-control" id="nama" value="{{ $kb->bb }}">
             </div>
             <div class="mb-3">
                 <label for="nama" class="form-label">Keterangan</label>

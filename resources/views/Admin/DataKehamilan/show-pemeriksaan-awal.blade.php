@@ -31,8 +31,12 @@
                 <input type="text" disabled class="form-control" id="nama" value="{{ $periksa->anak_perkecil }}">
             </div>
             <div class="mb-3">
-                <label for="nama" class="form-label">TD/BB</label>
-                <input type="text" disabled class="form-control" id="nama" value="{{ $periksa->td_bb }}">
+                <label for="nama" class="form-label">TD</label>
+                <input type="text" disabled class="form-control" id="nama" value="{{ $periksa->td }}">
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">BB</label>
+                <input type="text" disabled class="form-control" id="nama" value="{{ $periksa->bb }}">
             </div>
             <div class="mb-3">
                 <label for="nama" class="form-label">Hasil Pemeriksaan</label>

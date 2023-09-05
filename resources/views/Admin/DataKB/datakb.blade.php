@@ -31,8 +31,24 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->nama }}</td>
                         <td>{{ $item->tanggal }}</td>
-                        <td>{{ $item->baru }}</td>
-                        <td>{{ $item->lama }}</td>
+                        <td>@if ($item->baru == 'iya')
+                            <span class="badge bg-success py-2">
+                                <i class="fs-5 bi bi-check-circle"></i>
+                            </span>
+                            @else
+                            <span class="badge bg-danger py-2">
+                                <i class="fs-5 bi bi-x-circle"></i>
+                            </span>
+                            @endif</td>
+                            <td>@if ($item->lama == 'iya')
+                                <span class="badge bg-success py-2">
+                                    <i class="fs-5 bi bi-check-circle"></i>
+                                </span>
+                                @else
+                                <span class="badge bg-danger py-2">
+                                    <i class="fs-5 bi bi-x-circle"></i>
+                                </span>
+                        @endif</td>
                         <td class="text-center">
                             <a class="btn btn-info py-2 me-1" href="{{ Auth::user()->roles != 'admin' ? url('kb-bidan/show/'.$item->id) : url('kb/show/' . $item->id) }}">
                                 <i class="fs-6 bi bi-eye-fill"></i>

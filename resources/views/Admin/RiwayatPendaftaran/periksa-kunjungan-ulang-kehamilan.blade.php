@@ -17,17 +17,22 @@
                         <input type="date" id="tanggal" class="form-control" name="tanggal">
                     </div>
                     <div class="mb-3">
-                        <label for="td_bb" class="form-label">TD/BB</label>
-                        <input type="text" id="td_bb" class="form-control" name="td_bb"
+                        <label for="td_bb" class="form-label">TD</label>
+                        <input type="text" id="td_bb" class="form-control" name="td"
                             placeholder="Masukkan TD/BB Anda">
                     </div>
+                    <div class="mb-3">
+                        <label for="td_bb" class="form-label">BB</label>
+                        <input type="text" id="td_bb" class="form-control" name="bb"
+                            placeholder="Masukkan TD/BB Anda">
+                    </div>
+                </div>
+                <div class="col-md-6">
                     <div class="mb-3">
                         <label for="paritas" class="form-label">Paritas</label>
                         <input type="text" id="paritas" class="form-control" name="paritas"
                             placeholder="Masukkan Paritas Anda">
                     </div>
-                </div>
-                <div class="col-md-6">
                     <div class="mb-3">
                         <label for="umur_kelahiran" class="form-label">Umur Pemeriksaan</label>
                         <input type="text" id="umur_kelahiran" class="form-control" name="umur_kelahiran"

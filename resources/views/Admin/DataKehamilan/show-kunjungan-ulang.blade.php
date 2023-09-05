@@ -20,15 +20,19 @@
                 <label for="nama" class="form-label">Alamat</label>
                 <input type="text" disabled class="form-control" id="nama" value="{{ $kunjungan->alamat }}">
             </div>
-        </div>
-        <div class="col-md-6">
             <div class="mb-3">
                 <label for="nama" class="form-label">Paritas</label>
                 <input type="text" disabled class="form-control" id="nama" value="{{ $kunjungan->paritas }}">
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="mb-3">
-                <label for="nama" class="form-label">TD/BB</label>
-                <input type="text" disabled class="form-control" id="nama" value="{{ $kunjungan->td_bb }}">
+                <label for="nama" class="form-label">TD</label>
+                <input type="text" disabled class="form-control" id="nama" value="{{ $kunjungan->td }}">
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">BB</label>
+                <input type="text" disabled class="form-control" id="nama" value="{{ $kunjungan->bb }}">
             </div>
             <div class="mb-3">
                 <label for="nama" class="form-label">Umur Kelahiran</label>

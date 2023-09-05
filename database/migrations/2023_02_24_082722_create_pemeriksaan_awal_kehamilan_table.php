@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('umur');
             $table->string('paritas');
             $table->string('anak_perkecil');
-            $table->string('td_bb');
+            $table->string('td');
+            $table->string('bb');
             $table->string('hasil_pemeriksaan');
             $table->string('keterangan')->nullable();
             $table->longText('alamat');

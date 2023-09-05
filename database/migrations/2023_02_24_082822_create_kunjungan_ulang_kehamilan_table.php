@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('nama');
             $table->string('umur');
             $table->string('paritas');
-            $table->string('td_bb');
+            $table->string('td');
+            $table->string('bb');
             $table->string('umur_kelahiran');
             $table->string('keterangan')->nullable();
             $table->longText('alamat');

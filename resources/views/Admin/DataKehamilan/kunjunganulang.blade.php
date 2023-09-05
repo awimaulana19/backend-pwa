@@ -34,10 +34,10 @@
                             <td>{{ $item->nama }}</td>
                             <td>{{ $item->umur }}</td>
                             <td>{{ $item->alamat }}</td>
-                            <td class="text-center d-flex align-items-center">
+                            <td class="text-center d-flex justify-content-center align-items-center">
                                 <form action="{{Auth::user()->roles != 'admin' ? url('kunjungan-ulang-kehamilan-bidan.show/'.$item->id) : route('kunjungan-ulang-kehamilan.show', $item->id)}}" method="get">
                                     @csrf
-                                    <button class="btn btn-info py-2 me-1" type="submit">
+                                    <button class="btn btn-info py-2 me-2" type="submit">
                                         <i class="fs-6 bi bi-eye-fill"></i>
                                     </button>
                                 </form>

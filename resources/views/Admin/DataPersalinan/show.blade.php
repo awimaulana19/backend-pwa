@@ -28,15 +28,19 @@
                 <label for="nama" class="form-label">Pukul</label>
                 <input type="text" disabled class="form-control" id="nama" value="{{ $persalinan->pukul }}">
             </div>
-        </div>
-        <div class="col-md-6">
             <div class="mb-3">
                 <label for="nama" class="form-label">Jenis Kelamin</label>
                 <input type="text" disabled class="form-control" id="nama" value="{{ $persalinan->jk }}">
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="mb-3">
-                <label for="nama" class="form-label">BB/PB</label>
-                <input type="text" disabled class="form-control" id="nama" value="{{ $persalinan->bb_pb }}">
+                <label for="nama" class="form-label">BB</label>
+                <input type="text" disabled class="form-control" id="nama" value="{{ $persalinan->bb }}">
+            </div>
+            <div class="mb-3">
+                <label for="nama" class="form-label">PB</label>
+                <input type="text" disabled class="form-control" id="nama" value="{{ $persalinan->pb }}">
             </div>
             <div class="mb-3">
                 <label for="nama" class="form-label">Paritas</label>
@@ -54,9 +58,9 @@
                 <label for="nama" class="form-label">Keterangan</label>
                 <input type="text" disabled class="form-control" id="nama" value="{{ $persalinan->keterangan }}">
             </div>
-            <div class="d-flex justify-content-end">
-                <a href="{{ Auth::user()->roles != 'admin' ? url('persalinan-bidan'): url('/persalinan') }}" class="btn btn-danger">Kembali</a>
-            </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <a href="{{ Auth::user()->roles != 'admin' ? url('persalinan-bidan'): url('/persalinan') }}" class="btn btn-danger">Kembali</a>
         </div>
     </div>
 </div>

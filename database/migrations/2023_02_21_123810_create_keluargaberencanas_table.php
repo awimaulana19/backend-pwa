@@ -23,7 +23,8 @@ return new class extends Migration
             $table->string('umur');
             $table->string('alamat');
             $table->string('jumlah_anak');
-            $table->string('td_bb');
+            $table->string('td');
+            $table->string('bb');
             $table->date('tanggal_kembali');
             $table->string('metode_kb');
             $table->string('keterangan');

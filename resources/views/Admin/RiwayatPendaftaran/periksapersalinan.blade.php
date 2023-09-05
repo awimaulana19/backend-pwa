@@ -32,12 +32,17 @@
                         <input type="text" id="pukul" class="form-control" name="pukul"
                             placeholder="Masukkan pukul Anda">
                     </div>
+                    <div class="mb-3">
+                        <label for="bb_pb" class="form-label">BB</label>
+                        <input type="text" id="bb_pb" class="form-control" name="bb"
+                            placeholder="Masukkan BB Anda">
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="bb_pb" class="form-label">BB/PB</label>
-                        <input type="text" id="bb_pb" class="form-control" name="bb_pb"
-                            placeholder="Masukkan BB/PB Anda">
+                        <label for="bb_pb" class="form-label">PB</label>
+                        <input type="text" id="bb_pb" class="form-control" name="pb"
+                            placeholder="Masukkan BP Anda">
                     </div>
                     <div class="mb-3">
                         <label for="paritas" class="form-label">Paritas</label>
@@ -53,9 +58,9 @@
                         <label for="keterangan" class="form-label">Keterangan</label>
                         <textarea name="keterangan" id="keterangan" rows="3" class="form-control" placeholder="Masukkan Keterangan Anda"></textarea>
                     </div>
-                    <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-success">Submit</button>
-                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </div>
             </div>
         </form>

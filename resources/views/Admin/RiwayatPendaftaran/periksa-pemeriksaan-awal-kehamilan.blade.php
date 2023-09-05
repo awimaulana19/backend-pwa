@@ -22,9 +22,14 @@
                             placeholder="Masukkan Anak Perkecil Anda">
                     </div>
                     <div class="mb-3">
-                        <label for="td_bb" class="form-label">TD/BB</label>
-                        <input type="text" id="td_bb" class="form-control" name="td_bb"
-                            placeholder="Masukkan TD/BB Anda">
+                        <label for="td_bb" class="form-label">TD</label>
+                        <input type="text" id="td_bb" class="form-control" name="td"
+                            placeholder="Masukkan TD anda">
+                    </div>
+                    <div class="mb-3">
+                        <label for="td_bb" class="form-label">BB</label>
+                        <input type="text" id="td_bb" class="form-control" name="bb"
+                            placeholder="Masukkan BB Anda">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -42,9 +47,9 @@
                         <label for="keterangan" class="form-label">Keterangan</label>
                         <textarea name="keterangan" id="keterangan" rows="3" class="form-control" placeholder="Masukkan Keterangan Anda"></textarea>
                     </div>
-                    <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-success">Submit</button>
-                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </div>
             </div>
         </form>
